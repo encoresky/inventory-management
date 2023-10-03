@@ -1,11 +1,102 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+html {
+  font-size: 100%;
+}
 @layer components {
   .btn-primary {
-    @apply bg-orange border-[1px] ease-in-out	duration-300  border-transparent font-semibold	text-[20px] rounded-[5px] text-white py-[10px] px-[40px] hover:bg-transparent hover:outline-none hover:rounded-[5px] hover:border-[1px] hover:border-secondary hover:text-secondary;
+    @apply bg-orange border-[1px] ease-in-out	duration-300  border-transparent font-semibold	text-[20px] rounded-[5px] text-white py-[10px] px-[5.188rem] hover:bg-transparent hover:outline-none hover:rounded-[5px] hover:border-[1px] hover:border-orange hover:text-secondary;
   }
-  .btnPickDrop {
-    @apply bg-black border-[1px] ease-in-out	duration-300  border-transparent 	text-[20px] rounded-[1.875rem] text-white py-[10px] px-[40px] hover:bg-transparent hover:outline-none hover:rounded-[5px] hover:border-[1px] hover:border-secondary hover:text-secondary;
+  .btnToggle {
+    @apply bg-transparent border-[1px]   ease-in-out	duration-300  border-transparent 	text-xl  rounded-[1.875rem] text-black font-bold	 p-[10.512px] w-full text-center font-lato;
   }
+  .btnTab {
+    @apply bg-transparent border-[1px] font-lato ease-in-out	duration-300 border-light text-black 	text-md 
+     rounded-[1.25rem] font-bold	 pt-[6px] pb-[7px] px-[1.25rem] hover:bg-black hover:text-white hover:border-transparent;
+  }
+}
+.nav {
+  height: calc(100% - 115px);
+}
+.AllotmentWrapper .AllotmentBlock:nth-child(2),
+.AllotmentWrapper .AllotmentBlock:nth-child(3) {
+  @apply bg-orange_secondary;
+  width: 7.625rem;
+}
+.RealtimeStatusList li::after {
+  content: "";
+  border: none;
+  border-bottom: 1px dashed rgba(32, 32, 32, 0.5);
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 71%;
+}
+
+/* chrome safari  scrollbar css */
+::-webkit-scrollbar {
+  width: 10px; 
+  background-color: #f5f6fa;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #202020;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #202020; 
+}
+
+/* Internet Explorer */
+
+::-ms-scrollbar {
+  background-color: #f5f6fa; 
+  border-radius: 10px;
+}
+::-ms-thumb {
+  background-color: #202020;
+  border-radius: 10px;
+}
+
+::-ms-thumb:hover {
+  background-color: #202020;
+}
+/* firefox */
+body {
+  scrollbar-width:thin;
+  scrollbar-color: #000000 #f5f6fa;
+}
+.proceedWrapper{
+  width: calc(100% - 4.8rem);
+}
+
+.items_list::after{
+  content: "";
+  border: none;
+  border-bottom: 1px dashed rgba(32, 32, 32, 0.50);
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.listMainPage{
+ height: calc(100% - 92px);
+}
+.navLink svg{
+  fill: #fff;
+}
+.activeLink{
+  color: #DE7139;
+}
+.activeLink svg{
+  fill: #DE7139;
+}
+
+input[id^="react-select-"] {
+  @apply focus:outline-none focus:border-transparent focus:ring-0;
 }

@@ -12,23 +12,37 @@ module.exports = {
         primary_light: "#F5F6FA",
         secondary: "#000",
         secondary_light: "#202020;",
-        light: "rgba(32, 32, 32, 0.50)",
+        light: "#D9D9D9",
+        light_secondary: "rgba(32, 32, 32, 0.50)",
         white: "#fff",
         orange: "#DE7139",
-      },
-      fontFamily: {
-        sans: ["DM Sans", "Helvetica", "Arial", "sans-serif"],
+        orange_secondary:'rgba(223, 122, 69, 0.10)',
+        red_primary:'#FF8686',
       },
       fontSize: {
+        mini_sm: "12px",
         sm: "14px",
-        md: "16px",
+        md: "1rem",
         xl: "1.125rem",
+        "1xl": "1.25rem",
         "2xl": "1.5rem",
-        // "3xl": "1.953rem",
-        // "4xl": "2.441rem",
-        // "5xl": "3.052rem",
       },
+      fontFamily: {
+        sans: ["var(--font-DM-Sans)"],
+        lato: ["var(--font-Lato)"],
+      },
+      // lineHeight: {
+      //   'extra-loose': '2.5',
+      //   '12': '3rem',
+      // }
+      boxShadow: {
+        'sm': '0px 4px 15px 0px rgba(0, 0, 0, 0.15)',
+        'md':' 0px 4px 15px 0px rgba(0, 0, 0, 0.24)',
+
+      }
     },
   },
-  plugins: [],
+  plugins: [
+
+  ],
 };
