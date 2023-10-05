@@ -26,6 +26,7 @@ module.exports = {
         xl: "1.125rem",
         "1xl": "1.25rem",
         "2xl": "1.5rem",
+        "3xl": "1.5rem",
       },
       fontFamily: {
         sans: ["var(--font-DM-Sans)"],
@@ -38,6 +39,7 @@ module.exports = {
       boxShadow: {
         'sm': '0px 4px 15px 0px rgba(0, 0, 0, 0.15)',
         'md':' 0px 4px 15px 0px rgba(0, 0, 0, 0.24)',
+        'lg':' 0px 2.5625px 16.01563px 0px rgba(0, 0, 0, 0.08)',
 
       }
     },

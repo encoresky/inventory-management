@@ -1,32 +1,78 @@
 "use client";
 import Image from "next/image";
 import Button from "./Button";
-import arrowUp from "@/public/assets/ep_arrow-up.svg";
 import profile from "@/public/assets/profile.jpg";
 import Select from "react-select";
-import { customDropdownIndicator } from "@/public/assets/svg/customDropdownIndicator";
+import { Arrow } from "@/public/assets/svg/Arrow";
 
 const customStyle = {
   control: (provided) => ({
     ...provided,
     height:50,
     paddingLeft: 12,
-    paddingRight: 5,
+    paddingRight: 18,
     margin: 0,
     marginLeft: 0,
     border: "1px solid rgba(32, 32, 32, 0.50)",
     borderRadius: "10px",
     color: "#202020",
-    fontFamily: "DM Sans",
     fontSize: "16px",
     fontStyle: "normal",
     fontWeight: 500,
     backgroundColor: "white",
     outline: "none",
+    cursor: "pointer",
     boxShadow: "none",
     "&:hover": {
       border: "1px solid #DE7139",
     },
+  }),
+  
+  option: (provided,state) => ({
+    ...provided,
+    color: state.isSelected ? "#DF7A45" : "#202020",
+    fontSize: '14px',
+    fontStyle: 'normal',
+    fontWeight: 500,
+    backgroundColor: state.isSelected ? "transparent" : "transparent",
+    padding: '10px 0',
+    lineHeight: 'normal',
+    position: 'relative',
+    cursor: "pointer",
+    "&:hover": {
+      color: '#DF7A45',
+      background:'transparent',
+    },
+    "&:not(:last-child):after": {
+      content: '""',
+      border: 'none',
+      borderBottom: '1px dashed rgba(32, 32, 32, 0.50)',
+      color:'#fff',
+      position: 'absolute',
+      bottom: 0,
+      left: 0,
+      width: '100%',
+    },
+
+  }),
+  singleValue: (provided,state) => ({
+    ...provided,
+    color: '#202020',
+    fontSize: '14px',
+    fontStyle: 'normal',
+    fontWeight: 500,
+    lineHeight: 'normal',
+
+  }),
+  menu: (provided) => ({
+    ...provided,
+    borderRadius: 10,
+    border:'none',
+    marginTop: 0,
+    padding:"0 10px",
+    background: "#F5F6FA",
+    boxShadow:'0px 4px 2px 0px rgba(80, 80, 80, 0.10)',
+
   }),
 };
 const options = [
@@ -48,7 +94,7 @@ const options = [
     ),
   },
   {
-    value: "apple",
+    value: "devendra Sharma",
     label: (
       <div className="flex gap-[10px] items-center">
         <div>
@@ -60,12 +106,12 @@ const options = [
             className="rounded-[50%] selectImage"
           />
         </div>
-        <div>Apple</div>
+        <div>Devendra Sharma</div>
       </div>
     ),
   },
   {
-    value: "apple",
+    value: "Pradeep",
     label: (
       <div className="flex gap-[10px] items-center">
         <div>
@@ -77,7 +123,7 @@ const options = [
             className="rounded-[50%] selectImage"
           />
         </div>
-        <div>Apple</div>
+        <div>Pradeep</div>
       </div>
     ),
   },
@@ -101,10 +147,11 @@ function Proceed() {
                   menuPlacement="auto"
                   options={options}
                   components={{
-                    DropdownIndicator: customDropdownIndicator,
+                    DropdownIndicator: Arrow,
+                    IndicatorSeparator: () => null,
                   }}
                   styles={customStyle}
-                  className="outline-none shadow-none"
+                  className="customOption"
                 />
               </div>
               <div div className="relative w-[35.42%]">
@@ -112,10 +159,11 @@ function Proceed() {
                   menuPlacement="auto"
                   options={options2}
                   components={{
-                    DropdownIndicator: customDropdownIndicator,
+                    DropdownIndicator: Arrow,
+                    IndicatorSeparator: () => null,
                   }}
                   styles={customStyle}
-                  className="outline-none shadow-none"
+                  className="customOption"
                 />
               </div>
             </div>
@@ -129,14 +177,3 @@ function Proceed() {
   );
 }
 export default Proceed;
-
-{
-  /* <select className=" w-full appearance-none border border-light bg-primary_light font-sans text-md rounded-md px-[12px]  py-[10px]  text-secondary_light font-medium focus:outline-none focus:border-orange">
-<option>
-  {/* <Image src={profile} width={30} height={40} className="rounded-[50%]" alt="arrowUp" /> */
-}
-//   Option 1
-// </option>
-// <option>Option 2</option>
-// <option>Option 3</option>
-// </select> */}

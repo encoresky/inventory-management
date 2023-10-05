@@ -1,8 +1,6 @@
 import "./globals.css";
-import LeftSidebar from "@/components/LeftSidebar";
-import RightSidebar from "@/components/RightSidebar";
 import { lato, DMSans } from "@/font";
-import Search from "@/components/Search";
+import LayoutMain from "@/components/LayoutMain";
 
 export const metadata = {
   title: "Create Next App",
@@ -11,23 +9,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${DMSans.variable} ${lato.variable}`}>
-      <body className="overflow-hidden">
-        <div className="layout flex">
-          <div className="header w-[14.1%]  h-screen">
-            {" "}
-            <LeftSidebar />
-          </div>
-          <div className="dynamicContent  h-screen flex-grow-[1] px-[0.75rem] relative">
-            <div className="pt-[14px] pb-[1.5rem] w-[75.4%] mx-auto">
-              <Search />
-            </div>
-            {children}
-          </div>
-          <div className="footer pb-[1.875rem] pt-[14px]  w-[21.82%]  h-screen bg-primary_light px-[1.313rem]">
-            {" "}
-            <RightSidebar />{" "}
-          </div>
-        </div>
+      {/* className="overflow-hidden" */}
+      <body>
+       <LayoutMain children = {children}/>
       </body>
     </html>
   );

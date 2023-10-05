@@ -5,11 +5,11 @@ import Button from "./Button";
 
 const List = () => {
   return (
-    <div className="shadow-md h-full flex flex-col justify-between rounded-[20px]  ">
-      <div>
+    <div className="shadow-md h-full flex flex-col justify-between rounded-[20px]">
         <h4 className=" pt-[2.5rem] pl-[2.5rem] font-sans text-secondary text-1xl font-medium">
           Item List <span className="text-orange">(4)</span>
         </h4>
+      <div className="overflow-auto">
         <div className="max-h-[31.5rem] px-[2.5rem] pb-[2.5rem] pt-[1rem] overflow-y-auto">
           <div className="flex justify-between items-center flex-wrap items_list relative py-[12.5px]">
             <div className="flex gap-[2.1rem]">
@@ -138,7 +138,7 @@ const List = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-end gap-[3.8rem] items-center">
+      <div className="flex justify-end gap-[3.8rem] items-center px-[2.5rem] pb-[1rem]">
         <Button
           className="text-xl text-secondary font-sans font-normal decoration-1 underline decoration-secondary"
           name="Confirm"
