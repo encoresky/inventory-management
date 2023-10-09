@@ -16,8 +16,8 @@ module.exports = {
         light_secondary: "rgba(32, 32, 32, 0.50)",
         white: "#fff",
         orange: "#DE7139",
-        orange_secondary:'rgba(223, 122, 69, 0.10)',
-        red_primary:'#FF8686',
+        orange_secondary: "rgba(223, 122, 69, 0.10)",
+        red_primary: "#FF8686",
       },
       fontSize: {
         mini_sm: "12px",
@@ -37,14 +37,17 @@ module.exports = {
       //   '12': '3rem',
       // }
       boxShadow: {
-        'sm': '0px 4px 15px 0px rgba(0, 0, 0, 0.15)',
-        'md':' 0px 4px 15px 0px rgba(0, 0, 0, 0.24)',
-        'lg':' 0px 2.5625px 16.01563px 0px rgba(0, 0, 0, 0.08)',
-
-      }
+        sm: "0px 4px 15px 0px rgba(0, 0, 0, 0.15)",
+        md: " 0px 4px 15px 0px rgba(0, 0, 0, 0.24)",
+        lg: " 0px 2.5625px 16.01563px 0px rgba(0, 0, 0, 0.08)",
+      },
+    },
+    screens: {
+      sm: "767px",
+      md: "991px",
+      lg: "1040px",
+      xl: "1280px",
     },
   },
-  plugins: [
-
-  ],
+  plugins: [],
 };

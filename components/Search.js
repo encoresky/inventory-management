@@ -1,9 +1,7 @@
 "use client";
-import { useState } from "react";
 import SearchList from "./SearchList";
 
-function Search({className,placeholder}) {
-  const [searchVal, setSearchVal] = useState([]);
+function Search({className,placeholder,search,setSearch}) {
   return (
     <>
       <div className="relative">
@@ -12,8 +10,8 @@ function Search({className,placeholder}) {
             type="text"
             className={`w-full rounded-[30px] border-[1px] border-[#D9D9D9] ${className}`}
             placeholder={placeholder}
-            value={searchVal}
-            onChange={(e) => setSearchVal(e.target.value)}
+            value={search}
+            onChange={(e) =>setSearch(e.target.value)}
           />
           <span className="absolute translate-y-[-50%]	top-[50%] right-[2.125rem]">
             <svg
@@ -30,14 +28,13 @@ function Search({className,placeholder}) {
             </svg>
           </span>
         </div>
-
-        {searchVal.length > 0 ? (
+        {/* {search.length > 0 ? (
           <div className="absolute w-full z-[1] top-[70px]">
             <SearchList setSearchVal={setSearchVal} />
           </div>
         ) : (
           ""
-        )}
+        )} */}
       </div>
     </>
   );

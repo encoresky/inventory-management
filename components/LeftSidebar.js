@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import logo from "@/public/assets/logo.svg";
 import ListSvg from "@/public/assets/svg/ListSvg";
 import userManual from "@/public/assets/userManual.svg";
@@ -25,7 +25,7 @@ const LeftSidebar = () => {
           02:37 PM <br /> <span>26 September, 2023</span>
         </span>
       </div>
-      <div className="nav flex-col flex  rounded-tr-[10px] bg-primary pb-[0.625rem]">
+      <div className={` nav flex-col flex  rounded-tr-[10px] bg-primary pb-[0.625rem] `}>
         <div className="flex  flex-col  justify-center flex-grow items-center	gap-[2rem] pt-[2rem]">
           <Link
             href="/"

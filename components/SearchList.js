@@ -12,7 +12,7 @@ const SearchList = ({setSearchVal}) => {
             </h5>
             <span>D-4 | 4GB ram </span>
           </div>
-           <SelectButton/>
+          <SelectButton Select="Select" Selected="Selected" />
         </div>
       </div>
     </div>

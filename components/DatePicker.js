@@ -5,9 +5,7 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-const DateDropdownPicker = () => {
-  const [selectedDate, setSelectedDate] = useState(null);
-
+const DateDropdownPicker = ({selectedDate,setSelectedDate}) => {
   const handleChange = (date) => {
     setSelectedDate(date);
   };

@@ -3,7 +3,6 @@ import Image from "next/image";
 import mob from "@/public/assets/mob.png";
 import robot from "@/public/assets/robot.png";
 import Button from "./Button";
-// import { useRouter } from 'next/router';
 import userManual from "@/public/assets/userManual.svg";
 const Details = () => {
   return (

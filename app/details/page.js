@@ -1,24 +1,12 @@
 import React from "react";
 import Table from "@/components/Table";
 import Details from "@/components/Details";
-import Button from "@/components/Button";
-import Link from "next/link";
-import { Arrow } from "@/public/assets/svg/Arrow";
+import BackButton from "@/components/BackButton";
 const page = () => {
   return (
-    <div>
+    <>
       <div className="max-w-[1366px] px-[2.688rem]">
-        <div>
-          <Link
-            className="text-1xl flex font-sans gap-[10px] text-secondary font-bold"
-            href="/"
-          >
-            <span className="rotate-[270deg]">
-              <Arrow />
-            </span>
-            <span> Back</span>
-          </Link>
-        </div>
+        <BackButton />
         <div className="mb-[1.94rem] mt-[2rem]">
           <Details />
         </div>
@@ -26,7 +14,7 @@ const page = () => {
           <Table />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

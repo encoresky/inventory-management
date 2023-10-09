@@ -22,11 +22,7 @@ html {
 .nav {
   height: calc(100% - 115px);
 }
-.AllotmentWrapper .AllotmentBlock:nth-child(2),
-.AllotmentWrapper .AllotmentBlock:nth-child(3) {
-  @apply bg-orange_secondary;
-  width: 7.625rem;
-}
+
 .RealtimeStatusList li:not(:last-child)::after {
   content: "";
   border: none;
@@ -74,7 +70,7 @@ body {
   scrollbar-color: #000000 #f5f6fa;
 }
 .proceedWrapper {
-  width: calc(100% - 4.8rem);
+  width: calc(100% - 3.5rem);
 }
 
 .items_list:not(:last-child)::after {
@@ -101,4 +97,46 @@ body {
 }
 .customOption {
   @apply font-sans;
+}
+.burgericon{
+  display: none;
+}
+
+
+@media (max-width: 1040px) {
+  .leftSideBar{
+     position: absolute;
+     left: 0;
+     transform: translateX(-100%);
+     transition: all .3s ease-in-out;
+     z-index: 9;
+     overflow: hidden;
+  }
+  .leftSideBar.open{
+    transform: translateX(0);
+    overflow: hidden;
+
+
+  }
+  .burgericon svg {
+    fill: #fff;
+  }
+  .burgericon{
+    display: block;
+  }
+  .rightSideBar{
+    position: absolute;
+    right: 0;
+    transform: translateX(100%);
+    transition: all .3s ease-in-out;
+    z-index: 9;
+    overflow: hidden;
+ }
+ .rightSideBar.open{
+   transform: translateX(0);
+   overflow: hidden;
+
+
+ }
+
 }
