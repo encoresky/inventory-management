@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import mob from "@/public/assets/mob.png";
+import mob from "@/public/assets/Mob.png";
 import robot from "@/public/assets/robot.png";
 import Button from "./Button";
 import userManual from "@/public/assets/userManual.svg";
@@ -46,8 +46,8 @@ const Details = () => {
               className="mx-auto"
               alt="businessman"
             />
-            <p className="text-orange font-bold">Points to keep 
-            in mind</p>
+            <p className="text-orange font-bold">Points to keep
+              in mind</p>
           </div>
         </div>
       </div>

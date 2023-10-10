@@ -5,7 +5,7 @@ import Input from "./Input";
 import FormLabel from "./FormLabel";
 import Link from "next/link";
 import Button from "../Button";
-import { signUpschema } from "@/app/schemas/signUpschema";
+import { signUpschema } from "@/app/schemas/signupschema";
 import { useFormik } from "formik";
 
 const SignUp = ({ lang }) => {
