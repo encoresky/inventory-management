@@ -9,7 +9,7 @@ export const metadata = {
 };
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${DMSans.variable} ${lato.variable}`}>
+    <html lang="en" className={`${DMSans.variable} ${lato.variable} overflow-x-hidden`}>
       {/* className="overflow-hidden" */}
       <body className="overflow-hidden relative">
         <Provider store={store}>

@@ -22,9 +22,9 @@ const historyProduct = createSlice({
   reducers: {
     filterHistory(state, action) {
       state.filteredHistory = state.history.filter((history) =>
-        history.user.toLowerCase().includes(action.payload.toLowerCase()) || history.pick.includes(action.payload)
+        history.user.toLowerCase().includes(action.payload.toLowerCase())
       );
-    },      
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -43,5 +43,5 @@ const historyProduct = createSlice({
   },
 });
 
-export const { filterHistory } = historyProduct.actions;
+export const { filterHistory,filteredData } = historyProduct.actions;
 export default historyProduct.reducer;

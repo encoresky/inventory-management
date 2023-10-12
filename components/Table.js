@@ -6,21 +6,22 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchHistory } from "@/features/historyProducts/historyProductSlice";
 import {filterHistory} from"@/features/historyProducts/historyProductSlice";
+import {filteredData} from"@/features/historyProducts/historyProductSlice";
 const Table = () => {
   const dispatch = useDispatch();
   const history = useSelector((state) => state.history.filteredHistory);
   const isLoading = useSelector((state) => state.history.loading);
   const isError = useSelector((state) => state.history.isError);
-  
+
   const [search, setSearch] = useState();
   const [selectedDate,setSelectedDate] = useState();
-
   useEffect(() => {
     dispatch(fetchHistory());
   }, []);
   useEffect(() => {
     dispatch(filterHistory(search));
-  }, [search,selectedDate]);
+  }, [search]);
+
   if (isLoading) return <div>Loading....... </div>;
   if (isError) return <div>{isError}</div>;
   return (
@@ -46,22 +47,22 @@ const Table = () => {
           <div className="overflow-auto">
             <div className="min-w-full">
               <div className="overflow-hidden">
-                <table className="text-center w-full">
+                <table className="text-left w-full">
                   <thead className="bg-primary_light ">
                     <tr>
-                      <th scope="col" className="">
+                      <th scope="col" className="w-[9%] p-[1rem]">
                         S. NO.
                       </th>
-                      <th scope="col" className="">
+                      <th scope="col" className="w-[17%] p-[1rem]">
                         User Name
                       </th>
-                      <th scope="col" className="">
+                      <th scope="col" className="w-[17%] p-[1rem]">
                         Pick-up time
                       </th>
-                      <th scope="col" className="">
+                      <th scope="col" className="w-[17%] p-[1rem]">
                         Drop time
-                      </th>
-                      <th scope="col" className="px-6 py-4">
+                      </th> 
+                      <th scope="col" className="px-6 py-4 w-[40%] p-[1rem]">
                         Comment
                       </th>
                     </tr>
@@ -73,11 +74,11 @@ const Table = () => {
                           className=" l border-dashed border-light_secondary border-b-[1px]"
                           key={value.id}
                         >
-                          <td className="py-[1rem]">{value.id}</td>
-                          <td className="py-[1rem]">{value.user}</td>
-                          <td className="py-[1rem]">{value.pick}</td>
-                          <td className="py-[1rem]">{value.drop}</td>
-                          <td className="py-[1rem]">{value.comment}</td>
+                          <td className="p-[1rem]">{value.id}</td>
+                          <td className="p-[1rem]">{value.user}</td>
+                          <td className="p-[1rem]">{value.pick}</td>
+                          <td className="p-[1rem]">{value.drop}</td>
+                          <td className="p-[1rem]">{value.comment}</td>
                         </tr>
                       );
                     })}

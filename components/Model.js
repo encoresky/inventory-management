@@ -5,16 +5,12 @@ import Button from "./Button";
 import SelectButton from "./SelectButton";
 import mobile from "@/public/assets/mobile.png";
 export default function Model({ isVisible, closeModal }) {
-  useEffect(() => {
-    if (document) {
-      document.body.style.overflow = isVisible ? "hidden" : "auto";
-    }
-  }, [isVisible]);
+
   if (!isVisible) return null;
 
   return (
     <>
-      <div className=" fixed inset-0 backdrop-blur-sm flex justify-center items-center z-[2]" id="modelWrapper" onClick={(e)=>e.target.id === "modelWrapper" ? closeModal():"" }>
+      <div className=" fixed inset-0 backdrop-blur-sm flex justify-center bg-light_secondary items-center z-[2]" id="modelWrapper" onClick={(e)=>e.target.id === "modelWrapper" ? closeModal():"" }>
         <div className="w-[48rem]  transform px-[2.5rem] pt-[2.063rem] pb-[2.625rem] bg-white rounded-[20px] shadow-lg transition-all">
           <div className="flex items-center justify-between ">
             <div className="flex gap-[1.5rem] items-center">
@@ -38,8 +34,8 @@ export default function Model({ isVisible, closeModal }) {
           <h4 className=" pt-[2rem] pb-[1.125rem] font-sans text-secondary text-1xl font-medium">
             Item List <span className="text-orange">(4)</span>
           </h4>
-          <div className="overflow-auto">
-            <div className="max-h-[20rem] overflow-y-auto">
+          <div className="overflow-auto ">
+            <div className="max-h-[20rem] overflow-y-auto pr-[10px]">
               <div className="flex justify-between items-center flex-wrap items_list relative py-[12.5px]">
                 <div className="flex gap-[2.1rem]">
                   <Image src={mobile} width={22} height={44} alt="arrowUp" />
@@ -52,7 +48,7 @@ export default function Model({ isVisible, closeModal }) {
                     </p>
                   </div>
                 </div>
-                <SelectButton Select="Drop" Selected="Droped" />
+                <SelectButton Select="Drop" Selected="Selected"  />
               </div>
               <div className="flex justify-between items-center flex-wrap items_list relative py-[12.5px]">
                 <div className="flex gap-[2.1rem]">

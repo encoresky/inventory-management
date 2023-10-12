@@ -6,7 +6,7 @@ const RealtimeStatus = () => {
   return (
     <div>
       <h2 className="flex gap-[2.5rem] items-center mb-[1rem] ">
-        Allotment Status{" "}
+        Allotment Status
         <Image src={ep_arrow} width={24} height={24} alt="arrow" />
       </h2>
       <div className="max-h-[14rem] overflow-y-auto">

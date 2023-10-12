@@ -67,7 +67,7 @@ function LayoutMain({ children }) {
           </div>
         </div>
       ) : (
-        <div className="py-[2rem]">{children}</div>
+        <div className="py-[2rem] overflow-y-scroll">{children}</div>
       )}
     </>
   );

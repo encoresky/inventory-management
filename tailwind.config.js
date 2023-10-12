@@ -18,6 +18,8 @@ module.exports = {
         orange: "#DE7139",
         orange_secondary: "rgba(223, 122, 69, 0.10)",
         red_primary: "#FF8686",
+        model_bg : "#000000d1",
+        
       },
       fontSize: {
         mini_sm: "12px",

@@ -1,9 +1,11 @@
 "use client";
 import Image from "next/image";
 import Button from "./Button";
-import profile from "@/public/assets/profile.jpg";
-import Select from "react-select";
+import Select from 'react-select';
 import { Arrow } from "@/public/assets/svg/Arrow";
+import { useSelector,useDispatch } from "react-redux";
+
+
 
 const customStyle = {
   control: (provided) => ({
@@ -35,7 +37,7 @@ const customStyle = {
     fontStyle: 'normal',
     fontWeight: 500,
     backgroundColor: state.isSelected ? "transparent" : "transparent",
-    padding: '10px 0',
+    padding: '10px',
     lineHeight: 'normal',
     position: 'relative',
     cursor: "pointer",
@@ -69,73 +71,43 @@ const customStyle = {
     borderRadius: 10,
     border:'none',
     marginTop: 0,
-    padding:"0 10px",
     background: "#F5F6FA",
     boxShadow:'0px 4px 2px 0px rgba(80, 80, 80, 0.10)',
 
   }),
-};
-const options = [
-  {
-    value: "apple",
-    label: (
-      <div className="flex gap-[10px] items-center">
-        <div>
-          <Image
-            src={profile}
-            width={30}
-            height={30}
-            alt="arrowUp"
-            className="rounded-[50%] selectImage"
-          />
-        </div>
-        <div>Apple</div>
-      </div>
-    ),
-  },
-  {
-    value: "devendra Sharma",
-    label: (
-      <div className="flex gap-[10px] items-center">
-        <div>
-          <Image
-            src={profile}
-            width={30}
-            height={30}
-            alt="arrowUp"
-            className="rounded-[50%] selectImage"
-          />
-        </div>
-        <div>Devendra Sharma</div>
-      </div>
-    ),
-  },
-  {
-    value: "Pradeep",
-    label: (
-      <div className="flex gap-[10px] items-center">
-        <div>
-          <Image
-            src={profile}
-            width={30}
-            height={30}
-            alt="arrowUp"
-            className="rounded-[50%] selectImage"
-          />
-        </div>
-        <div>Pradeep</div>
-      </div>
-    ),
-  },
-];
-const options2 = [
-  { value: "blues", label: "Blues" },
-  { value: "rock", label: "Rock" },
-  { value: "jazz", label: "Jazz" },
-  { value: "orchestra", label: "Orchestra" },
-];
 
-function Proceed() {
+};
+
+
+
+function Proceed( {
+   setSelectedpurpose ,setSelectedUserId,setIsOpen,selectedpurpose,selectedUserId,selectedItem
+}  ) {
+  const employees = useSelector((state) => state.employees.employee);
+  const purpose = useSelector((state) => state.employees.purpose);
+
+  const options2 = purpose.map((value) => ({
+    value: value.id, 
+    label: value.purpose,
+  }));
+
+  const options = employees.map((value) => ({
+    value: value.id, 
+    label: (
+      <div className="flex gap-[10px] items-center" key={value.id}>
+        <div>
+          <Image
+            src={value.proImage}
+            width={30}
+            height={30}
+            alt="arrowUp"
+            className="rounded-[50%] selectImage"
+          />
+        </div>
+        <div>{value.name}</div>
+      </div>
+    ),
+  }));
   return (
     <div className="px-[1.75rem]">
       <div className="proceedWrapper bg-primary_light absolute rounded-[10px]  bottom-[15px]  py-[1.25rem] px-[1.25rem]">
@@ -152,9 +124,11 @@ function Proceed() {
                   }}
                   styles={customStyle}
                   className="customOption"
+                  onChange={(val)=>{setSelectedUserId(val.value)}}
+                  
                 />
               </div>
-              <div div className="relative w-[35.42%]">
+              <div className="relative w-[35.42%]">
                 <Select
                   menuPlacement="auto"
                   options={options2}
@@ -163,13 +137,14 @@ function Proceed() {
                     IndicatorSeparator: () => null,
                   }}
                   styles={customStyle}
-                  className="customOption"
+                  className="customOption "
+                  onChange={(val)=>{setSelectedpurpose(val.value)}}
                 />
               </div>
             </div>
           </div>
           <div>
-            <Button className="btn-primary w-full" name="Proceed" />
+            <Button isDisabled={(selectedItem.length !== 0 && selectedpurpose !== "" && selectedUserId !=="")? false:true} className={`btn-primary w-full ${selectedItem.length !== 0 && selectedpurpose !== "" && selectedUserId !== "" ? '' :'bg-light hover:bg-light hover:text-white hover:border-transparent'}`} name="Proceed" onClick={()=>setIsOpen(true)} />
           </div>
         </div>
       </div>
