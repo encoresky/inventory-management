@@ -1,14 +1,20 @@
 import React from "react";
 import { Arrow } from "@/public/assets/svg/Arrow";
 import { useState } from "react";
-import Model from "./Model";
+import DropModel from "./DropModel";
 import { useSelector } from "react-redux";
-
 const Drop = () => {
   const employee = useSelector((state) => state.employees.employee);
-  let [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [employeeId , setEmployeeId] = useState()
+
   function closeModal() {
     setIsOpen(false);
+  }
+  const openModel = (id)=>{
+    setIsOpen(true);  
+    setEmployeeId(id)
+
   }
   return (
     <div className="px-[1.75rem] ">
@@ -17,7 +23,7 @@ const Drop = () => {
           {
             employee.map((value)=>{
               return(
-                <div className="flex justify-between items-center flex-wrap items_list relative py-[10px] cursor-pointer hover:fill-orange font-sans text-md text-secondary_light  font-medium hover:text-orange focus:text-orange"  onClick={()=>setIsOpen(true)} key={value.id}>
+                <div className="flex justify-between items-center flex-wrap items_list relative py-[10px] cursor-pointer hover:fill-orange font-sans text-md text-secondary_light  font-medium hover:text-orange focus:text-orange"  onClick={()=>openModel(value.id)} key={value.id}>
                 <div className="flex gap-[2.1rem]">
                   <div>
                     <h5 className="">
@@ -34,7 +40,8 @@ const Drop = () => {
           }
           </div>
       </div>
-      ​<Model isVisible={isOpen} closeModal={closeModal}/>
+      {isOpen ? <DropModel closeModal={closeModal} employeeId = {employeeId} /> : null}
+
     </div>
   );
 };

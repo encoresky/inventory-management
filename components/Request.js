@@ -6,8 +6,9 @@ const Request = () => {
       <div>
         <Image
           src={young_woman}
-          width={"auto"}
-          height={"auto"}
+          width={73}
+          height="auto"
+          priority={true}
           alt="young_woman"
         />
       </div>

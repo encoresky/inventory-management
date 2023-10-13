@@ -1,6 +1,3 @@
-"use client";
-import SearchList from "./SearchList";
-
 function Search({className,placeholder,search,setSearch}) {
   return (
     <>
@@ -28,13 +25,6 @@ function Search({className,placeholder,search,setSearch}) {
             </svg>
           </span>
         </div>
-        {/* {search.length > 0 ? (
-          <div className="absolute w-full z-[1] top-[70px]">
-            <SearchList setSearchVal={setSearchVal} />
-          </div>
-        ) : (
-          ""
-        )} */}
       </div>
     </>
   );

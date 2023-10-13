@@ -11,7 +11,7 @@ const Details = () => {
         <div className="flex  gap-[2.5rem]">
           <div className="text-center w-[69.42%] bg-primary_light rounded-[10px] flex-col flex items-center justify-center pt-[1.375rem] pb-[1.688rem]">
             <div className="ImageContainer">
-              <Image src={mob} alt="Mobile" width={138} height={281} />
+              <Image src={mob} alt="Mobile" width={138}   height="auto" priority={true} />
             </div>
           </div>
           <div>
@@ -34,7 +34,7 @@ const Details = () => {
         <div className="w-[17%]">
           <div className=" mb-[0.95rem] rounded-[10px] flex flex-col items-center gap-[2.5rem] bg-white shadow-lg pt-[2.063rem] px-[2.063rem] pb-[1.563rem] ">
             <div className="max-w-[100%]">
-              <Image src={robot} alt="robot" width={66} height={121} />
+              <Image src={robot} alt="robot" width={66}   height="auto"  priority={true}/>
             </div>
             <Button className="btn-secondary" name="Report an issue" />
           </div>
@@ -42,12 +42,13 @@ const Details = () => {
             <Image
               src={userManual}
               width={35}
-              height={35}
+              height="auto"
+              priority={true}
               className="mx-auto"
               alt="businessman"
             />
-            <p className="text-orange font-bold">Points to keep
-              in mind</p>
+            <button className="text-orange font-bold">Points to keep
+              in mind</button>
           </div>
         </div>
       </div>

@@ -1,43 +1,52 @@
 import Image from "next/image";
-import deleteIcon from "@/public/assets/delete.svg";
-import profile from "@/public/assets/profile.jpg";
+import { useEffect, useState } from "react";
 import Button from "./Button";
 import SelectButton from "./SelectButton";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
-export default function ProcessModel({ closeModal, payload }) {
-  const [selectedItemId, setSelectedItemId] = useState(payload.selectedItem);
-  const [selectedItem, setSelectedItem] = useState([]);
-  const [employee, setEmployees] = useState([]);
- 
+import { useSelector } from "react-redux";
+
+export default function DropModel({ closeModal, employeeId }) {
   const products = useSelector((state) => state.product.products);
-  const employees = useSelector((state) => state.employees.employee);
-  console.log(employees)
+  const employee = useSelector((state) => state.employees.employee);
+  const allowedProducts = useSelector(
+    (state) => state.SelectedProduct.SelectedProduct[0]
+  );
+  const [SelectedProduct, setSelectedProducts] = useState('');
+  const [employeeVal, setEmployeeVal] = useState('');
 
   useEffect(() => {
-    const filteremployee =  employees.find((employees) => employees.id ==  payload.userId);
 
+    const filterId = allowedProducts.filter(
+      (allowedId) => allowedId.epId === employeeId
+    );
 
-    const filterValue = selectedItemId.map((id) => {
-      return products.find((product) => product.id == id);
-    });
-    setEmployees(filteremployee)
-    setSelectedItem(filterValue);
-  }, []);
+    const filteremployee = employee.filter(
+      (allowedId) => allowedId.id === employeeId
+    );
 
-  const handleDelete = (id) => {
-    if(id){
-      const res = selectedItem.filter((product)=>product.id !=id);
-      setSelectedItem(res);
+    setEmployeeVal(filteremployee);
+
+    const filterValue =  filterId.map((id)=>{
+      return products.find((product) => product.id == id.proId)  ;
+    })
+
+     setSelectedProducts(filterValue);
+  }, [employeeId]);
+  const handleSelect = (isSelected, id) => {
+    if (isSelected) {
+      // setSelectedItem([...selectedItem,id])
+    } else {
+      // const res = selectedItem.filter((item)=>item!==id)
+      // setSelectedItem(res)
     }
   };
-if (employee.length === 0 && selectedItem === 0) {
-   
-} 
+  
+  if (SelectedProduct=== '') {
+     return 
+    }
   return (
     <>
       <div
-        className=" fixed inset-0 backdrop-blur-sm flex justify-center bg-model_bg items-center z-[2]"
+        className=" fixed inset-0 backdrop-blur-sm flex justify-center bg-model_bg  items-center z-[2]"
         id="modelWrapper"
         onClick={(e) => (e.target.id === "modelWrapper" ? closeModal() : "")}
       >
@@ -45,18 +54,17 @@ if (employee.length === 0 && selectedItem === 0) {
           <div className="flex items-center justify-between ">
             <div className="flex gap-[1.5rem] items-center">
               <Image
-                src={employee.proImage}
+                src={employeeVal[0]['proImage']}
                 width={40}
                 height="auto"
                 priority={true}
-                alt="Prifile"
-                style={{ 
-                  width: 'auto',
-                   borderRadius:"50%",
-               }}
+                className="rounded-[50%]"
+                alt="img"
+                style={{ width: 'auto' }}
+
               />
               <figcaption className="text-1xl font-sans font-medium text-secondary">
-                {employee.name}
+                {employeeVal[0]['name']}
               </figcaption>
             </div>
             <button
@@ -67,14 +75,15 @@ if (employee.length === 0 && selectedItem === 0) {
             </button>
           </div>
           <h4 className=" pt-[2rem] pb-[1.125rem] font-sans text-secondary text-1xl font-medium">
-            Item List <span className="text-orange">({selectedItem?.length})</span>
+            Item List{" "}
+            <span className="text-orange">({SelectedProduct.length})</span>
           </h4>
           <div className="overflow-auto ">
             <div className="max-h-[20rem] overflow-y-auto pr-[10px]">
-              {selectedItem?.map((value) => {
+              {SelectedProduct?.map((value) => {
                 return (
                   <div
-                    className="flex justify-between items-center flex-wrap items_list relative py-[12.5px]"
+                    className="flex justify-between items-center gap-[2rem] items_list relative py-[12.5px]"
                     key={value.id}
                   >
                     <div className="flex gap-[2.1rem]">
@@ -83,11 +92,9 @@ if (employee.length === 0 && selectedItem === 0) {
                         width={22}
                         height="auto"
                         priority={true}
-                        alt="img"
-                        style={{ 
-                          width: 'auto',
-                           borderRadius:"50%",
-                       }}
+                        alt="arrowUp"
+                        style={{ width: 'auto' }}
+
                       />
                       <div>
                         <h5 className="font-sans text-sm text-secondary_light font-normal">
@@ -98,19 +105,16 @@ if (employee.length === 0 && selectedItem === 0) {
                         </p>
                       </div>
                     </div>
-                    <button className="" onClick={()=> handleDelete(value.id)}>
-                      <Image
-                        src={deleteIcon}
-                        width={30}
-                        height="auto"
-                        priority={true}
-                        alt="arrowUp"
-                        className="mx-auto"
+                    <div>
+                      <SelectButton
+                        Select="Drop"
+                        Selected="Selected"
+                        defaultSelected="true"
+                        onChange={(isSelected) => {
+                          handleSelect(isSelected, value.id);
+                        }}
                       />
-                      <p className="font-sans text-mini_sm font-normal text-red_primary">
-                        Remove
-                      </p>
-                    </button>
+                    </div>
                   </div>
                 );
               })}

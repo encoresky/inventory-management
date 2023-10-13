@@ -3,25 +3,28 @@ import React from "react";
 import Search from "./Search";
 import DateDropdownPicker from "./DatePicker";
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchHistory } from "@/features/historyProducts/historyProductSlice";
-import {filterHistory} from"@/features/historyProducts/historyProductSlice";
-import {filteredData} from"@/features/historyProducts/historyProductSlice";
+import {useSelector } from "react-redux";
+
+// import { fetchHistory } from "@/features/historyProducts/historyProductSlice";
+// import {filterHistory} from"@/features/historyProducts/historyProductSlice";
 const Table = () => {
-  const dispatch = useDispatch();
-  const history = useSelector((state) => state.history.filteredHistory);
+  const history = useSelector((state) => state.history.filteredHistory[0]);
   const isLoading = useSelector((state) => state.history.loading);
   const isError = useSelector((state) => state.history.isError);
-
-  const [search, setSearch] = useState();
+  const [historyValue,setHistoryValue] = useState(history);
+  const [search, setSearch] = useState('');
   const [selectedDate,setSelectedDate] = useState();
-  useEffect(() => {
-    dispatch(fetchHistory());
-  }, []);
-  useEffect(() => {
-    dispatch(filterHistory(search));
-  }, [search]);
+    useEffect(()=>{
+      handleSearch(search) 
+    },[search])
 
+  const handleSearch = (action)=>{
+    const lowerCaseAction = action.toLowerCase();
+   const filteredHistory = history.filter((history) =>
+      history.userName && history.userName.toLowerCase().includes(lowerCaseAction)
+      );
+      setHistoryValue(filteredHistory);
+  }
   if (isLoading) return <div>Loading....... </div>;
   if (isError) return <div>{isError}</div>;
   return (
@@ -49,6 +52,7 @@ const Table = () => {
               <div className="overflow-hidden">
                 <table className="text-left w-full">
                   <thead className="bg-primary_light ">
+                   
                     <tr>
                       <th scope="col" className="w-[9%] p-[1rem]">
                         S. NO.
@@ -66,19 +70,19 @@ const Table = () => {
                         Comment
                       </th>
                     </tr>
-                  </thead>
-                  <tbody className="last:border-none ">
-                    {history.map((value) => {
+                  </thead> 
+                  <tbody className="last:border-none">
+                    {historyValue?.map((value) => {
                       return (
                         <tr
                           className=" l border-dashed border-light_secondary border-b-[1px]"
                           key={value.id}
                         >
                           <td className="p-[1rem]">{value.id}</td>
-                          <td className="p-[1rem]">{value.user}</td>
-                          <td className="p-[1rem]">{value.pick}</td>
-                          <td className="p-[1rem]">{value.drop}</td>
-                          <td className="p-[1rem]">{value.comment}</td>
+                          <td className="p-[1rem]">{value.userName}</td>
+                          <td className="p-[1rem]">{value.PickUpDate}</td>
+                          <td className="p-[1rem]">{value.DropDate}</td>
+                          <td className="p-[1rem]">{value.Comment}</td>
                         </tr>
                       );
                     })}

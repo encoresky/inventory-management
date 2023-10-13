@@ -3,8 +3,8 @@ import PlusIcon from '@/public/assets/svg/PlusIcon';
 import RightIcon from '@/public/assets/svg/RightIcon';
 import { useState } from 'react';
 
-const SelectButton = ({Selected , Select, onChange}) => {
-  const [isSelected, setIsSelected] = useState(false);
+const SelectButton = ({Selected , Select, onChange,defaultSelected}) => {
+  const [isSelected, setIsSelected] = useState(defaultSelected ? defaultSelected:false);
 
   const toggleSelect = () => {
     setIsSelected((prevSelected) => !prevSelected);

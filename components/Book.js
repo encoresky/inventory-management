@@ -7,7 +7,8 @@ const Book = ({name}) => {
       <Image
         src={userManual}
         width={35}
-        height={35}
+        height="auto"
+        priority={true}
         className="mx-auto"
         alt="businessman"
       />

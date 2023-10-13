@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import logo from "@/public/assets/logo.svg";
 import Input from "./Input";
 import FormLabel from "./FormLabel";
 import Link from "next/link";
@@ -37,15 +36,8 @@ const SignUp = ({ lang }) => {
   return (
     <div className="flex items-center  justify-center flex-col  overflow-auto py-[1rem]">
       <div className="w-[31.25rem] bg-white  px-[20px] py-[40px] shadow-sm rounded-[10px] max-h-[33.25rem] overflow-auto">
-        <div className="">
-          <Image
-            src={logo}
-            width={150}
-            height={150}
-            alt="Picture of the author"
-          />
-        </div>
-        <h1 className="text-[40px] font-bold text-primary text-center">
+     
+        <h1 className="text-[40px] font-bold text-primary text-center pb-[1rem]">
           Sign Up
         </h1>
         <form onSubmit={handleSubmit}>
@@ -120,7 +112,7 @@ const SignUp = ({ lang }) => {
                 href="/login"
                 className="hover:text-orange hover:underline hover:underline-offset-4"
               >
-                Sign Up
+                Login
               </Link>
             </p>
           </div>

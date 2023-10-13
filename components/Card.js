@@ -47,7 +47,8 @@ function Card({selectedItem,setSelectedItem}) {
                 <Image
                   src={value.image || ""}
                   width={100}
-                  height={110}
+                  height="auto"
+                  priority={true}
                   alt="home icon"
                   className="mx-auto"
                 />

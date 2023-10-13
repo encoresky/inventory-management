@@ -6,28 +6,32 @@ import { Arrow } from "@/public/assets/svg/Arrow";
 import Burger from "@/public/assets/svg/Burger";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import SearchList from "./SearchList";
+
 function LayoutMain({ children }) {
   const route = usePathname();
   const [openLeft, setOpenLeft] = useState(false);
   const [openRight, setOpenRight] = useState(false);
+  const [search, setSearch] = useState("");
 
   return (
     <>
       {route !== "/details" ? (
         <div className="layout flex max-lg:flex-col">
-          <div className="flex  justify-between ">
+          <div className="flex  justify-between">
             <button
               className="burgericon p-[10px] bg-primary rounded-r-[10px]"
               onClick={() => setOpenLeft(!openLeft)}
             >
-              <Burger/>
+              <Burger />
             </button>
             <button
               className="burgericon p-[10px] bg-primary rounded-l-[10px] "
               onClick={() => setOpenRight(!openRight)}
             >
-              <span className="rotate-[270deg]  block"> <Arrow/></span>
-             
+              <span className="rotate-[270deg]  block">
+                <Arrow />
+              </span>
             </button>
           </div>
           <div
@@ -44,11 +48,20 @@ function LayoutMain({ children }) {
             <LeftSidebar />
           </div>
           <div className="dynamicContent pb-[1.875rem] h-screen w-[64.08%] max-lg:w-[100%] px-[0.75rem] relative">
-            <div className="pt-[14px] pb-[1.5rem] w-[75.4%]  mx-auto">
+            <div className="pt-[14px] pb-[1.5rem] w-[75.4%]  mx-auto relative">
               <Search
                 className="pt-[15px] pb-[13px] pl-[2.125rem] pr-[2.125rem]"
                 placeholder="Search Your Item here"
+                setSearch={setSearch}
+                search={search}
               />
+              {search.length > 0 ? (
+                <div className="absolute w-full z-[1] top-[70px]">
+                  <SearchList setSearch={setSearch} search ={search} />
+                </div>
+              ) : (
+                ""
+              )}
             </div>
             {children}
           </div>
