@@ -1,18 +1,15 @@
+'use client'  
 import Image from "next/image";
 import deleteIcon from "@/public/assets/delete.svg";
-import profile from "@/public/assets/profile.jpg";
 import Button from "./Button";
-import SelectButton from "./SelectButton";
-import { useDispatch, useSelector } from "react-redux";
+import {useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 export default function ProcessModel({ closeModal, payload }) {
   const [selectedItemId, setSelectedItemId] = useState(payload.selectedItem);
   const [selectedItem, setSelectedItem] = useState([]);
   const [employee, setEmployees] = useState([]);
- 
   const products = useSelector((state) => state.product.products);
   const employees = useSelector((state) => state.employees.employee);
-  console.log(employees)
 
   useEffect(() => {
     const filteremployee =  employees.find((employees) => employees.id ==  payload.userId);
@@ -31,8 +28,8 @@ export default function ProcessModel({ closeModal, payload }) {
       setSelectedItem(res);
     }
   };
-if (employee.length === 0 && selectedItem === 0) {
-   
+if (employee.length === 0 && selectedItem.length  === 0) {
+   return
 } 
   return (
     <>
@@ -45,9 +42,9 @@ if (employee.length === 0 && selectedItem === 0) {
           <div className="flex items-center justify-between ">
             <div className="flex gap-[1.5rem] items-center">
               <Image
-                src={employee.proImage}
+                src={employee?.proImage || ""}
                 width={40}
-                height="auto"
+                height='auto'
                 priority={true}
                 alt="Prifile"
                 style={{ 
@@ -86,7 +83,7 @@ if (employee.length === 0 && selectedItem === 0) {
                         alt="img"
                         style={{ 
                           width: 'auto',
-                           borderRadius:"50%",
+                         
                        }}
                       />
                       <div>
