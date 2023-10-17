@@ -25,11 +25,11 @@ export default function DropModel({ closeModal, employeeId }) {
 
     setEmployeeVal(filteremployee);
 
-    const filterValue =  filterId.map((id)=>{
-      return products.find((product) => product.id == id.proId)  ;
+    const filterValue = filterId.map((id) => {
+      return products.find((product) => product.id == id.proId);
     })
 
-     setSelectedProducts(filterValue);
+    setSelectedProducts(filterValue);
   }, [employeeId]);
   const handleSelect = (isSelected, id) => {
     if (isSelected) {
@@ -39,10 +39,10 @@ export default function DropModel({ closeModal, employeeId }) {
       // setSelectedItem(res)
     }
   };
-  
-  if (SelectedProduct=== '') {
-     return 
-    }
+
+  if (SelectedProduct === '') {
+    return
+  }
   return (
     <>
       <div
@@ -55,13 +55,11 @@ export default function DropModel({ closeModal, employeeId }) {
             <div className="flex gap-[1.5rem] items-center">
               <Image
                 src={employeeVal[0]['proImage']}
-                width={40}
-                height="auto"
+                width={44}
+                height={44}
                 priority={true}
                 className="rounded-[50%]"
                 alt="img"
-                style={{ width: 'auto' }}
-
               />
               <figcaption className="text-1xl font-sans font-medium text-secondary">
                 {employeeVal[0]['name']}
@@ -89,12 +87,10 @@ export default function DropModel({ closeModal, employeeId }) {
                     <div className="flex gap-[2.1rem]">
                       <Image
                         src={value.image}
-                        width={22}
-                        height="auto"
+                        width={44}
+                        height={44}
                         priority={true}
                         alt="arrowUp"
-                        style={{ width: 'auto' }}
-
                       />
                       <div>
                         <h5 className="font-sans text-sm text-secondary_light font-normal">
