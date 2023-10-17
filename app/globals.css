@@ -10,7 +10,7 @@ html {
 } */
 @layer components {
   .btn-primary {
-    @apply bg-orange border-[1px] ease-in-out	duration-300  border-transparent font-semibold	text-[20px] rounded-[5px] text-white py-[10px] px-[5.188rem] hover:bg-transparent hover:outline-none  hover:border-orange hover:text-secondary;
+    @apply bg-orange border-[1px] ease-in-out	duration-300  border-transparent font-semibold	text-[20px] rounded-[5px] text-white py-[10px] px-[5.188rem] max-sm:px-[1.5rem] hover:bg-transparent hover:outline-none  hover:border-orange hover:text-secondary;
   }
   .btn-secondary {
     @apply bg-white border-[1px] 	  border-secondary font-medium	text-mini_sm rounded-[6.406px] text-orange py-[10px] px-[1.602rem] hover:outline-none hover:border-orange hover:text-secondary;
@@ -76,8 +76,8 @@ body {
 .proceedWrapper {
   width: 91%;
 }
-button{
-  cursor:pointer;
+button {
+  cursor: pointer;
 }
 
 .items_list:not(:last-child)::after {
@@ -105,45 +105,39 @@ button{
 .customOption {
   @apply font-sans;
 }
-.burgericon{
+.burgericon {
   display: none;
 }
 
-
 @media (max-width: 1040px) {
-  .leftSideBar{
-     position: absolute;
-     left: 0;
-     transform: translateX(-100%);
-     transition: all .3s ease-in-out;
-     z-index: 9;
-     overflow: hidden;
+  .leftSideBar {
+    position: absolute;
+    left: 0;
+    transform: translateX(-100%);
+    transition: all 0.3s ease-in-out;
+    z-index: 9;
+    overflow: hidden;
   }
-  .leftSideBar.open{
+  .leftSideBar.open {
     transform: translateX(0);
     overflow: hidden;
-
-
   }
   .burgericon svg {
     fill: #fff;
   }
-  .burgericon{
+  .burgericon {
     display: block;
   }
-  .rightSideBar{
+  .rightSideBar {
     position: absolute;
     right: 0;
     transform: translateX(100%);
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     z-index: 9;
     overflow: hidden;
- }
- .rightSideBar.open{
-   transform: translateX(0);
-   overflow: hidden;
-
-
- }
-
+  }
+  .rightSideBar.open {
+    transform: translateX(0);
+    overflow: hidden;
+  }
 }

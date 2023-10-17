@@ -1,37 +1,44 @@
-'use client'  
+"use client";
 import Image from "next/image";
 import deleteIcon from "@/public/assets/delete.svg";
 import Button from "./Button";
-import {useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-export default function ProcessModel({ closeModal, payload ,setSelectedItem,selectedItem,products}) {
-const [items, setItems] = useState([]);
+export default function ProcessModel({
+  closeModal,
+  payload,
+  setSelectedItem,
+  selectedItem,
+  products,
+}) {
+  const [items, setItems] = useState([]);
   const [employee, setEmployees] = useState([]);
   const product = products;
   const employees = useSelector((state) => state.employees.employee);
- 
 
   useEffect(() => {
-    const filteremployee =  employees.find((employees) => employees.id ==  payload.userId);
-    const res = product.filter((item)=>{
-      if(selectedItem.includes(item?.id)){
-        return item
+    const filteremployee = employees.find(
+      (employees) => employees.id == payload.userId
+    );
+    const res = product.filter((item) => {
+      if (selectedItem.includes(item?.id)) {
+        return item;
       }
-    })
-    setEmployees(filteremployee)
+    });
+    setEmployees(filteremployee);
     setItems(res);
   }, [payload]);
 
   const handleDelete = (id) => {
-    if(id){
+    if (id) {
       const res = payload.selectedItem.filter((item) => item !== id);
       setSelectedItem(res);
     }
   };
-  
-if (employee.length === 0 && items.length  === 0) {
-   return
-} 
+
+  if (employee.length === 0 && items.length === 0) {
+    return;
+  }
   return (
     <>
       <div
@@ -43,15 +50,14 @@ if (employee.length === 0 && items.length  === 0) {
           <div className="flex items-center justify-between ">
             <div className="flex gap-[1.5rem] items-center">
               <Image
-                src={employee?.proImage || ""}
+                src={employee?.proImage}
                 width={40}
-                height='auto'
+                height={40}
                 priority={true}
                 alt="Prifile"
-                style={{ 
-                  width: 'auto',
-                   borderRadius:"50%",
-               }}
+                style={{
+                  borderRadius: "50%",
+                }}
               />
               <figcaption className="text-1xl font-sans font-medium text-secondary">
                 {employee?.name}
@@ -65,7 +71,8 @@ if (employee.length === 0 && items.length  === 0) {
             </button>
           </div>
           <h4 className=" pt-[2rem] pb-[1.125rem] font-sans text-secondary text-1xl font-medium">
-            Item List <span className="text-orange">({selectedItem?.length})</span>
+            Item List{" "}
+            <span className="text-orange">({selectedItem?.length})</span>
           </h4>
           <div className="overflow-auto ">
             <div className="max-h-[20rem] overflow-y-auto pr-[10px]">
@@ -79,13 +86,9 @@ if (employee.length === 0 && items.length  === 0) {
                       <Image
                         src={value?.image}
                         width={22}
-                        height="auto"
+                        height={22}
                         priority={true}
                         alt="img"
-                        style={{ 
-                          width: 'auto',
-                         
-                       }}
                       />
                       <div>
                         <h5 className="font-sans text-sm text-secondary_light font-normal">
@@ -96,12 +99,15 @@ if (employee.length === 0 && items.length  === 0) {
                         </p>
                       </div>
                     </div>
-                    <button className="" onClick={()=> handleDelete(value?.id)}>
+                    <button
+                      className=""
+                      onClick={() => handleDelete(value?.id)}
+                    >
                       <Image
                         src={deleteIcon}
                         width={30}
                         height="auto"
-                        priority={true}
+                        priority={30}
                         alt="arrowUp"
                         className="mx-auto"
                       />
@@ -120,7 +126,11 @@ if (employee.length === 0 && items.length  === 0) {
               name="Cancel"
               onClick={closeModal}
             />
-            <Button className="btn-primary" name="Confirm" onClick={closeModal} />
+            <Button
+              className="btn-primary"
+              name="Confirm"
+              onClick={closeModal}
+            />
           </div>
         </div>
       </div>

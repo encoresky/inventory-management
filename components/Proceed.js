@@ -109,11 +109,11 @@ function Proceed({
   }));
   return (
     <div className="px-[1.75rem]">
-      <div className="proceedWrapper bg-primary_light absolute rounded-[10px]  bottom-[15px]  py-[1.25rem] px-[1.25rem]">
-        <div className="flex justify-between">
-          <div className="w-[53.82%] max-w-[432px]">
-            <div className="flex justify-between">
-              <div className="relative w-[58.1%]">
+      <div className="proceedWrapper max-sm:w-[100%] max-sm:left-0 bg-primary_light absolute rounded-[10px]  bottom-[15px]  py-[1.25rem] px-[1.25rem]">
+        <div className="flex justify-between max-sm:flex-col max-sm:gap-[1rem]">
+          <div className="w-[100%] max-w-[432px]  max-sm:max-w-[100%]">
+            <div className="flex justify-between max-sm:flex-col max-sm:gap-[1rem]">
+              <div className="relative w-[58.1%] max-sm:w-[100%]">
                 <Select
                   instanceId={useId()}
                   menuPlacement="auto"
@@ -129,7 +129,7 @@ function Proceed({
                   }}
                 />
               </div>
-              <div className="relative w-[35.42%]">
+              <div className="relative w-[35.42%] max-sm:w-[100%]">
                 <Select
                   instanceId={useId()}
                   menuPlacement="auto"

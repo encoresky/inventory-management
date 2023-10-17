@@ -32,7 +32,7 @@ const getCurrentDateTime = () => {
   return { formattedTime, formattedDate };
 };
 
-const LeftSidebar = () => {
+const LeftSidebar = ({ setOpenLeft }) => {
   const pathname = usePathname();
   const linkCss = "text-white flex  flex-col items-center	gap-[0.75rem]";
   const [formattedTime, setFormattedTime] = useState("");
@@ -47,14 +47,13 @@ const LeftSidebar = () => {
   return (
     <div className="wrapper h-full">
       <div className="bg-white h-[115px] pl-[1rem] pt-[14px] pb-[20px]">
-        <div className="logo">
+        <div className="logo" onClick={() => setOpenLeft(false)}>
           <Link href="/">
-            <Image src={logo} width={160}  height="auto" alt="logo" />
+            <Image src={logo} width={160} height="auto" alt="logo" />
           </Link>
         </div>
         <span className="text-md font-medium text-black font-sans">
-      {formattedTime} <br /> <span>{formattedDate}</span> 
-         
+          {formattedTime} <br /> <span>{formattedDate}</span>
         </span>
       </div>
       <div
@@ -66,6 +65,7 @@ const LeftSidebar = () => {
             className={`${linkCss} ${
               pathname === "/" ? "activeLink" : "navLink"
             }`}
+            onClick={() => setOpenLeft(false)}
           >
             <HomeIcon />
             <span>Home</span>
@@ -75,6 +75,7 @@ const LeftSidebar = () => {
             className={` ${linkCss} ${
               pathname === "/list" ? "activeLink" : "navLink"
             }`}
+            onClick={() => setOpenLeft(false)}
           >
             <ListSvg />
             <span>List</span>
@@ -84,6 +85,7 @@ const LeftSidebar = () => {
             className={` ${linkCss} ${
               pathname === "/login" ? "activeLink" : "navLink"
             }`}
+            onClick={() => setOpenLeft(false)}
           >
             <AdminIcon />
             <span>Admin</span>

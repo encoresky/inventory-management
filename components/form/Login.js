@@ -34,9 +34,9 @@ const Login = () => {
 
   return (
     <div className="flex items-center py-[2rem]  flex-col">
-      <div className="w-[500px] bg-white  px-[20px] py-[40px] shadow-sm rounded-[10px] ">
+      <div className="w-[500px] max-sm:w-[100%] bg-white  px-[20px] py-[40px] shadow-sm rounded-[10px] ">
         <h1 className="text-[40px] font-bold text-primary text-center font-sans pb-[1rem]">
-          Login 
+          Login
         </h1>
         <form onSubmit={handleSubmit}>
           <FormLabel name="Email" id="userEmail" />
@@ -66,12 +66,12 @@ const Login = () => {
           <div className="flex justify-between mt-[0.5rem]">
             <Button name="Login" className="btn-primary px-[2rem]" />
             <p className="text-secondary text-[14px] mt-[20px]">
-              Don't have an account? 
-               <Link
+              Don't have an account?
+              <Link
                 href="/signUp"
                 className=" font-sans text-sm font-normal hover:text-orange hover:underline hover:underline-offset-4"
               >
-               &nbsp;Sign Up
+                &nbsp;Sign Up
               </Link>
             </p>
           </div>

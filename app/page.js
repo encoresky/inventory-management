@@ -12,15 +12,15 @@ export default function Home() {
   const [toggleState, setToggleState] = useState("pick");
   const [isOpen, setIsOpen] = useState(false);
   const [products, setProducts] = useState(data);
-  const [filteredProducts,setFilteredProducts] =useState(data);
+  const [filteredProducts, setFilteredProducts] = useState();
   const [category, setCategory] = useState("phone");
 
   useEffect(() => {
-    const filteredItems = filteredProducts.filter(
+    const filteredItems = products.filter(
       (product) => product.category == category
     );
-    setProducts(filteredItems);
-  }, [category]);
+    setFilteredProducts(filteredItems);
+  }, [category, products]);
 
   const [selectedItem, setSelectedItem] = useState([]);
   const [selectedUserId, setSelectedUserId] = useState("");
@@ -36,7 +36,7 @@ export default function Home() {
   }
   return (
     <>
-      <div className="w-[75.4%] mx-auto">
+      <div className="w-[75.4%] max-sm:w-[100%] mx-auto">
         <Toggle setToggleState={setToggleState} toggleState={toggleState} />
       </div>
       {toggleState === "pick" ? (
@@ -51,7 +51,7 @@ export default function Home() {
             setSelectedItem={setSelectedItem}
             products={products}
             setProducts={setProducts}
-            category={category}
+            filteredProducts={filteredProducts}
           />
         ) : (
           <Drop />
@@ -70,18 +70,17 @@ export default function Home() {
         ""
       )}
 
-      {isOpen &&
-        selectedItem.length !== 0 &&
-        selectedpurpose !== "" &&
-        selectedUserId !== "" && (
-          <ProcessModel
-            closeModal={closeModal}
-            selectedItem={selectedItem}
-            setSelectedItem={setSelectedItem}
-            payload={payload}
-            products={products}
-          />
-        )}
+      {isOpen ? (
+        <ProcessModel
+          closeModal={closeModal}
+          selectedItem={selectedItem}
+          setSelectedItem={setSelectedItem}
+          payload={payload}
+          products={products}
+        />
+      ) : (
+        ""
+      )}
     </>
   );
 }

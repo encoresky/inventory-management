@@ -18,24 +18,8 @@ function LayoutMain({ children }) {
     <>
       {route !== "/details" ? (
         <div className="layout flex max-lg:flex-col">
-          <div className="flex  justify-between">
-            <button
-              className="burgericon p-[10px] bg-primary rounded-r-[10px]"
-              onClick={() => setOpenLeft(!openLeft)}
-            >
-              <Burger />
-            </button>
-            <button
-              className="burgericon p-[10px] bg-primary rounded-l-[10px] "
-              onClick={() => setOpenRight(!openRight)}
-            >
-              <span className="rotate-[270deg]  block">
-                <Arrow />
-              </span>
-            </button>
-          </div>
           <div
-            className={`header w-[14.1%] leftSideBar h-screen   max-lg:w-[30%] ${
+            className={`header w-[14.1%] leftSideBar h-screen   max-lg:w-[30%] max-sm:w-[100%] ${
               openLeft ? "open" : ""
             }`}
           >
@@ -45,10 +29,28 @@ function LayoutMain({ children }) {
             >
               &#10006;
             </button>
-            <LeftSidebar />
+            <LeftSidebar setOpenLeft={setOpenLeft} />
           </div>
-          <div className="dynamicContent pb-[1.875rem] h-screen w-[64.08%] max-lg:w-[100%] px-[0.75rem] relative">
-            <div className="pt-[14px] pb-[1.5rem] w-[75.4%]  mx-auto relative">
+          <div className="dynamicContent pb-[1.875rem] h-screen w-[64.08%] max-lg:w-[100%] relative">
+            {/* mobile burger buttn */}
+            <div className="flex  justify-between">
+              <button
+                className="burgericon p-[10px] bg-primary rounded-r-[10px]"
+                onClick={() => setOpenLeft(!openLeft)}
+              >
+                <Burger />
+              </button>
+              <button
+                className="burgericon p-[10px]  bg-primary rounded-l-[10px] "
+                onClick={() => setOpenRight(!openRight)}
+              >
+                <span className="rotate-[270deg]  block">
+                  <Arrow />
+                </span>
+              </button>
+            </div>
+            {/* mobile burger buttn End*/}
+            <div className="pt-[14px] pb-[1.5rem] w-[75.4%] px-[0.75rem] mx-auto max-sm:w-[100%] relative">
               <Search
                 className="pt-[15px] pb-[13px] pl-[2.125rem] pr-[2.125rem]"
                 placeholder="Search Your Item here"
@@ -56,17 +58,17 @@ function LayoutMain({ children }) {
                 search={search}
               />
               {search.length > 0 ? (
-                <div className="absolute w-full z-[1] top-[70px]">
-                  <SearchList setSearch={setSearch} search ={search} />
+                <div className="absolute w-full z-[1] top-[70px] pb-[30px]">
+                  <SearchList setSearch={setSearch} search={search} />
                 </div>
               ) : (
                 ""
               )}
             </div>
-            {children}
+            <div className="px-[0.75rem]">{children}</div>
           </div>
           <div
-            className={`footer rightSideBar pb-[1.875rem] pt-[14px]  w-[21.82%]  max-lg:w-[30%]  h-screen bg-primary_light px-[1.313rem] ${
+            className={`footer rightSideBar pb-[1.875rem] pt-[14px]  w-[21.82%]  max-lg:w-[30%] max-sm:w-[100%] h-screen bg-primary_light px-[1.313rem] ${
               openRight ? "open" : ""
             }`}
           >

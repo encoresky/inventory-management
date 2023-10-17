@@ -3,11 +3,16 @@ import Image from "next/image";
 import SelectButton from "@/components/SelectButton";
 import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
-import { useEffect} from "react";
-const Card=({ selectedItem, setSelectedItem,products,setProducts,category})=> {
+import { useEffect } from "react";
+const Card = ({
+  selectedItem,
+  setSelectedItem,
+  products,
+  setProducts,
+  filteredProducts,
+}) => {
   const router = useRouter();
   const data = useSelector((state) => state.product.products);
-  
 
   // const dispatch = useDispatch();
   // const isLoading = useSelector((state) => state.product.loading);
@@ -17,7 +22,6 @@ const Card=({ selectedItem, setSelectedItem,products,setProducts,category})=> {
   // }, []);
   // if (isLoading) return <div>Loading....... </div>;
   // if (isError) return <div>{isError}</div>;
-  
 
   const handleSelect = (isSelected, id) => {
     if (isSelected) {
@@ -28,26 +32,25 @@ const Card=({ selectedItem, setSelectedItem,products,setProducts,category})=> {
     }
   };
 
-  useEffect(()=>{
-    const res = data.map((item)=>{
-      if(selectedItem.includes(item?.id)){
-        return {...item,isSelected:true}
-      }else{
-        return {...item,isSelected:false}
+  useEffect(() => {
+    const res = data.map((item) => {
+      if (selectedItem.includes(item?.id)) {
+        return { ...item, isSelected: true };
+      } else {
+        return { ...item, isSelected: false };
       }
-    })
-    setProducts(res)
-  },[selectedItem])
-
+    });
+    setProducts(res);
+  }, [selectedItem]);
 
   return (
     <>
       <div className="cardMain flex flex-wrap gap-[1.25rem] max-h-[25rem] pb-[7.625rem] px-[1.75rem] overflow-y-auto">
-        {products?.map((value) => {
+        {filteredProducts?.map((value) => {
           return (
             <div
               className="card w-[28%] border-[1px] flex flex-col justify-between items-center bg-white  border-light rounded-[10px] text-center pt-[1.813rem] pb-[12px]
-         px-[1.563rem] ease-in-out 	duration-300 hover:bg-primary_light cursor-pointer"
+         px-[1.563rem] ease-in-out 	duration-300 hover:bg-primary_light cursor-pointer max-sm:w-[100%]"
               id="cardWrapper"
               onClick={(e) =>
                 e.target.id === "cardWrapper" ? router.push("/details") : ""
@@ -59,9 +62,9 @@ const Card=({ selectedItem, setSelectedItem,products,setProducts,category})=> {
                 onClick={() => router.push("/details")}
               >
                 <Image
-                  src={value?.image || ""}
+                  src={value?.image}
                   width={100}
-                  height="auto"
+                  height={110}
                   priority={true}
                   alt="home icon"
                   className="mx-auto"
@@ -90,6 +93,6 @@ const Card=({ selectedItem, setSelectedItem,products,setProducts,category})=> {
       </div>
     </>
   );
-}
+};
 
 export default Card;

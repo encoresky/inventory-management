@@ -1,11 +1,10 @@
-"use client"
+"use client";
 import Image from "next/image";
 import deleteIcon from "@/public/assets/delete.svg";
 import mobile from "@/public/assets/mobile.png";
 import Button from "./Button";
 import { useSelector } from "react-redux";
 import { useState } from "react";
-
 
 const List = () => {
   const products = useSelector((state) => state.product.products);
@@ -21,16 +20,21 @@ const List = () => {
       <h4 className=" pt-[2.5rem] pl-[2.5rem] font-sans text-secondary text-1xl font-medium">
         Item List <span className="text-orange">({productsItam?.length})</span>
       </h4>
-      <div className="overflow-auto">
-        <div className=" px-[2.5rem] pb-[2.5rem] pt-[1rem]">
+      <div className="overflow-y-scroll ">
+        <div className=" px-[2.5rem] pb-[2.5rem] pt-[1rem] max-sm:px-0">
           {productsItam?.map((value) => {
             return (
-              <div className="flex justify-between items-center flex-wrap items_list relative py-[12.5px]" key={value.id}>
+              <div
+                className="flex justify-between items-center flex-wrap items_list relative py-[12.5px] max-sm:pl-[0.7rem]"
+                key={value.id}
+              >
                 <div className="flex gap-[2.1rem]">
-                  <Image src={value?.image}
+                  <Image
+                    src={value?.image}
                     width={44}
                     height={44}
-                    priority={true} alt="arrowUp"
+                    priority={true}
+                    alt="arrowUp"
                   />
                   <div>
                     <h5 className="font-sans text-sm text-secondary_light font-normal">
@@ -58,13 +62,11 @@ const List = () => {
               </p>
             </button> */}
               </div>
-
-            )
+            );
           })}
-
         </div>
       </div>
-      <div className="flex justify-end gap-[3.8rem] items-center px-[2.5rem] py-[1rem]">
+      <div className="flex justify-end gap-[3.8rem] items-center px-[2.5rem] max-sm:px-[0.7rem] py-[1rem]">
         <Button
           className="text-xl text-secondary font-sans font-normal hover:text-orange hover:decoration-orange
            decoration-1 underline decoration-secondary"
