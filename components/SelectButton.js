@@ -1,16 +1,18 @@
   "use client"
 import PlusIcon from '@/public/assets/svg/PlusIcon';
 import RightIcon from '@/public/assets/svg/RightIcon';
-import { useState } from 'react';
+import {useEffect, useState } from 'react';
 
-const SelectButton = ({Selected , Select, onChange,defaultSelected}) => {
-  const [isSelected, setIsSelected] = useState(defaultSelected ? defaultSelected:false);
+const SelectButton = ({Selected , Select, onChange,value}) => {
+  const [isSelected, setIsSelected] = useState(value);
 
   const toggleSelect = () => {
     setIsSelected((prevSelected) => !prevSelected);
      onChange(!isSelected);
   };
-  
+  useEffect(()=>{
+    setIsSelected(value)
+  },[value])
   return (
     <button
       className={`flex gap-[1rem] w-[9rem]  font-medium text-md border-[1px] items-center	rounded-[5px] font-sans justify-center p-2  ${

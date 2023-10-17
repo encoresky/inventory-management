@@ -95,7 +95,7 @@ function Proceed({
       <div className="flex gap-[10px] items-center" key={value.id}>
         <div>
           <Image
-            src={value.proImage}
+            src={value?.proImage}
             width={30}
             height="auto"
             priority={true}

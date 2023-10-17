@@ -98,10 +98,10 @@ export default function DropModel({ closeModal, employeeId }) {
                       />
                       <div>
                         <h5 className="font-sans text-sm text-secondary_light font-normal">
-                          {value.productname}
+                          {value?.productname}
                         </h5>
                         <p className="font-sans  font-normal text-light_secondary text-mini_sm">
-                          {value.desc}
+                          {value?.desc}
                         </p>
                       </div>
                     </div>

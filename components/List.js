@@ -27,21 +27,21 @@ const List = () => {
             return(
           <div className="flex justify-between items-center flex-wrap items_list relative py-[12.5px]" key={value.id}>
             <div className="flex gap-[2.1rem]">
-              <Image src={value.image} width={22} height="auto"
+              <Image src={value?.image} width={22} height="auto"
               priority={true} alt="arrowUp"
               style={{ width: 'auto' }}
               
               />
               <div>
                 <h5 className="font-sans text-sm text-secondary_light font-normal">
-                 {value.productname}
+                 {value?.productname}
                 </h5>
                 <p className="font-sans  font-normal text-light_secondary text-mini_sm">
-                {value.desc}
+                {value?.desc}
                 </p>
               </div>
             </div>
-            <button className="" onClick={()=>handleDelete(value.id)}>
+          {/* <button className="" onClick={()=>handleDelete(value.id)}>
               <Image
                 src={deleteIcon}
                 width={30}
@@ -56,7 +56,7 @@ const List = () => {
               <p className="font-sans text-mini_sm font-normal text-red_primary">
                 Remove
               </p>
-            </button>
+            </button> */}
           </div>
 
             )

@@ -39,7 +39,7 @@ const Login = () => {
           Login 
         </h1>
         <form onSubmit={handleSubmit}>
-          <FormLabel name="email" id="userEmail" />
+          <FormLabel name="Email" id="userEmail" />
           <Input
             name="email"
             placeholder="Enter Your Email"
@@ -51,7 +51,7 @@ const Login = () => {
             handleBlur={handleBlur}
             touched={touched}
           />
-          <FormLabel name="password" id="userPass" />
+          <FormLabel name="Password" id="userPass" />
           <Input
             name="password"
             placeholder="Enter Your Password"
@@ -67,11 +67,11 @@ const Login = () => {
             <Button name="Login" className="btn-primary px-[2rem]" />
             <p className="text-secondary text-[14px] mt-[20px]">
               Don't have an account? 
-              <Link
+               <Link
                 href="/signUp"
                 className=" font-sans text-sm font-normal hover:text-orange hover:underline hover:underline-offset-4"
               >
-                 Sign Up
+               &nbsp;Sign Up
               </Link>
             </p>
           </div>

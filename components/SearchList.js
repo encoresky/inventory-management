@@ -37,9 +37,9 @@ const SearchList = ({ setSearch, search }) => {
             >
               <div className="w-[70%]" onClick={(e) => setSearch("i am here")}>
                 <h5 className="font-sans text-sm text-secondary_light font-normal">
-                  {value.productname}
+                  {value?.productname}
                 </h5>
-                <span>{value.desc}</span>
+                <span>{value?.desc}</span>
               </div>
               <div>
                 <SelectButton Select="Select" Selected="Selected" onChange={(isSelected)=>{handleSelect(isSelected,value.id)}}/>
