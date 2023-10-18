@@ -2,8 +2,8 @@ import React from "react";
 import Button from "./Button";
 const Tab = ({ setCategory, category }) => {
   return (
-    <div>
-      <div className="flex gap-[1rem] justify-center mt-[1.5rem] max-sm:w-[100%] max-sm:px-[50px] overflow-x-scroll ">
+    <div className="h-[95px] pt-[1.5rem]">
+      <div className="tabWrapper  flex gap-[1rem] justify-center  max-sm:justify-normal  overflow-x-scroll ">
         <Button
           name="Smartphone"
           className={`btnTab ${

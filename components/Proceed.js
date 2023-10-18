@@ -101,6 +101,7 @@ function Proceed({
             priority={true}
             alt="arrowUp"
             className="rounded-[50%] selectImage"
+            style={{ objectFit: "contain" }}
           />
         </div>
         <div>{value.name}</div>
@@ -109,7 +110,7 @@ function Proceed({
   }));
   return (
     <div className="px-[1.75rem]">
-      <div className="proceedWrapper max-sm:w-[100%] max-sm:left-0 bg-primary_light absolute rounded-[10px]  bottom-[15px]  py-[1.25rem] px-[1.25rem]">
+      <div className="proceedWrapper absolute bottom-[15px] max-sm:w-[100%] max-sm:left-0 max-sm:pb-0 h-[92px] max-sm:h-[208px] max-sm:bottom-0  bg-primary_light  rounded-[10px]   py-[1.25rem] px-[1.25rem]">
         <div className="flex justify-between max-sm:flex-col max-sm:gap-[1rem]">
           <div className="w-[100%] max-w-[432px]  max-sm:max-w-[100%]">
             <div className="flex justify-between max-sm:flex-col max-sm:gap-[1rem]">

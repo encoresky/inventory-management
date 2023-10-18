@@ -16,9 +16,9 @@ const Drop = () => {
     setEmployeeId(id);
   };
   return (
-    <div className="px-[1.75rem] max-sm:px-0">
-      <div className="shadow-md h-full bg-white  flex flex-col justify-between rounded-[20px] py-[1rem]">
-        <div className="overflow-y-auto px-[2.5rem] py-[2.5rem] max-h-[25.25rem] ">
+    <div className=" dropWrapper px-[1.75rem] max-sm:px-0 pt-[2rem] overflow-y-auto ">
+      <div className="shadow-md  bg-white  flex flex-col justify-between rounded-[20px] py-[1rem]">
+        <div className="px-[2.5rem] py-[2.5rem]">
           {employee.map((value) => {
             return (
               <div

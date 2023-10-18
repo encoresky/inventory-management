@@ -36,7 +36,7 @@ export default function Home() {
   }
   return (
     <>
-      <div className="w-[75.4%] max-sm:w-[100%] mx-auto">
+      <div className="w-[75.4%] max-sm:w-[100%] mx-auto h-[50px]">
         <Toggle setToggleState={setToggleState} toggleState={toggleState} />
       </div>
       {toggleState === "pick" ? (
@@ -44,7 +44,7 @@ export default function Home() {
       ) : (
         ""
       )}
-      <div className="mt-[2rem]  flex flex-col justify-between">
+      <div>
         {toggleState === "pick" ? (
           <Card
             selectedItem={selectedItem}

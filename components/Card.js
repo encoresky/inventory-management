@@ -45,7 +45,7 @@ const Card = ({
 
   return (
     <>
-      <div className="cardMain flex flex-wrap gap-[1.25rem] max-h-[25rem] pb-[7.625rem] px-[1.75rem] overflow-y-auto">
+      <div className="cardMain flex flex-wrap gap-[1.25rem] cardWrapper pb-[7.625rem] px-[1.75rem] overflow-y-auto">
         {filteredProducts?.map((value) => {
           return (
             <div
@@ -64,10 +64,11 @@ const Card = ({
                 <Image
                   src={value?.image}
                   width={100}
-                  height={110}
+                  height="auto"
                   priority={true}
                   alt="home icon"
                   className="mx-auto"
+                  style={{ objectFit: "contain" }}
                 />
               </div>
               <div

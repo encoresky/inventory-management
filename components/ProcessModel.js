@@ -52,11 +52,12 @@ export default function ProcessModel({
               <Image
                 src={employee?.proImage}
                 width={40}
-                height={40}
+                height="auto"
                 priority={true}
                 alt="Prifile"
                 style={{
                   borderRadius: "50%",
+                  objectFit: "contain",
                 }}
               />
               <figcaption className="text-1xl font-sans font-medium text-secondary">
@@ -79,16 +80,17 @@ export default function ProcessModel({
               {items?.map((value) => {
                 return (
                   <div
-                    className="flex justify-between items-center flex-wrap items_list relative py-[12.5px]"
+                    className="flex justify-between items-center gap-[1rem] items_list relative py-[12.5px]"
                     key={value?.id}
                   >
-                    <div className="flex gap-[2.1rem]">
+                    <div className="flex gap-[2.1rem] max-sm:gap-[1rem]">
                       <Image
                         src={value?.image}
-                        width={22}
-                        height={22}
+                        width={44}
+                        height="auto"
                         priority={true}
                         alt="img"
+                        style={{ objectFit: "contain" }}
                       />
                       <div>
                         <h5 className="font-sans text-sm text-secondary_light font-normal">
@@ -107,9 +109,10 @@ export default function ProcessModel({
                         src={deleteIcon}
                         width={30}
                         height="auto"
-                        priority={30}
+                        priority={true}
                         alt="arrowUp"
                         className="mx-auto"
+                        style={{ objectFit: "contain" }}
                       />
                       <p className="font-sans text-mini_sm font-normal text-red_primary">
                         Remove

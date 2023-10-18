@@ -50,7 +50,7 @@ function LayoutMain({ children }) {
               </button>
             </div>
             {/* mobile burger buttn End*/}
-            <div className="pt-[14px] pb-[1.5rem] w-[75.4%] px-[0.75rem] mx-auto max-sm:w-[100%] relative">
+            <div className="pt-[14px] pb-[1.5rem] h-[92px] w-[75.4%] px-[0.75rem] mx-auto max-sm:w-[100%] relative">
               <Search
                 className="pt-[15px] pb-[13px] pl-[2.125rem] pr-[2.125rem]"
                 placeholder="Search Your Item here"

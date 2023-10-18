@@ -10,11 +10,10 @@ export default function DropModel({ closeModal, employeeId }) {
   const allowedProducts = useSelector(
     (state) => state.SelectedProduct.SelectedProduct[0]
   );
-  const [SelectedProduct, setSelectedProducts] = useState('');
-  const [employeeVal, setEmployeeVal] = useState('');
+  const [SelectedProduct, setSelectedProducts] = useState("");
+  const [employeeVal, setEmployeeVal] = useState("");
 
   useEffect(() => {
-
     const filterId = allowedProducts.filter(
       (allowedId) => allowedId.epId === employeeId
     );
@@ -27,7 +26,7 @@ export default function DropModel({ closeModal, employeeId }) {
 
     const filterValue = filterId.map((id) => {
       return products.find((product) => product.id == id.proId);
-    })
+    });
 
     setSelectedProducts(filterValue);
   }, [employeeId]);
@@ -40,8 +39,8 @@ export default function DropModel({ closeModal, employeeId }) {
     }
   };
 
-  if (SelectedProduct === '') {
-    return
+  if (SelectedProduct === "") {
+    return;
   }
   return (
     <>
@@ -54,15 +53,16 @@ export default function DropModel({ closeModal, employeeId }) {
           <div className="flex items-center justify-between ">
             <div className="flex gap-[1.5rem] items-center">
               <Image
-                src={employeeVal[0]['proImage']}
+                src={employeeVal[0]["proImage"]}
                 width={44}
-                height={44}
+                height="auto"
                 priority={true}
                 className="rounded-[50%]"
                 alt="img"
+                style={{ objectFit: "contain" }}
               />
               <figcaption className="text-1xl font-sans font-medium text-secondary">
-                {employeeVal[0]['name']}
+                {employeeVal[0]["name"]}
               </figcaption>
             </div>
             <button
@@ -88,9 +88,10 @@ export default function DropModel({ closeModal, employeeId }) {
                       <Image
                         src={value.image}
                         width={44}
-                        height={44}
+                        height="auto"
                         priority={true}
                         alt="arrowUp"
+                        style={{ objectFit: "contain" }}
                       />
                       <div>
                         <h5 className="font-sans text-sm text-secondary_light font-normal">
@@ -122,7 +123,11 @@ export default function DropModel({ closeModal, employeeId }) {
               name="Cancel"
               onClick={closeModal}
             />
-            <Button className="btn-primary" name="Confirm" onClick={closeModal} />
+            <Button
+              className="btn-primary"
+              name="Confirm"
+              onClick={closeModal}
+            />
           </div>
         </div>
       </div>

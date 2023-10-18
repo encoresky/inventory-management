@@ -1,7 +1,5 @@
 "use client";
 import Image from "next/image";
-import deleteIcon from "@/public/assets/delete.svg";
-import mobile from "@/public/assets/mobile.png";
 import Button from "./Button";
 import { useSelector } from "react-redux";
 import { useState } from "react";
@@ -16,7 +14,7 @@ const List = () => {
     }
   };
   return (
-    <div className="shadow-md h-full flex flex-col justify-between rounded-[20px]">
+    <div className="listWrapper shadow-md  flex flex-col justify-between rounded-[20px]">
       <h4 className=" pt-[2.5rem] pl-[2.5rem] font-sans text-secondary text-1xl font-medium">
         Item List <span className="text-orange">({productsItam?.length})</span>
       </h4>
@@ -32,9 +30,10 @@ const List = () => {
                   <Image
                     src={value?.image}
                     width={44}
-                    height={44}
+                    height="auto"
                     priority={true}
                     alt="arrowUp"
+                    style={{ objectFit: "contain" }}
                   />
                   <div>
                     <h5 className="font-sans text-sm text-secondary_light font-normal">

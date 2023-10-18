@@ -4,7 +4,7 @@ import AllotmentStatus from "@/components/AllotmentStatus";
 
 const RightSidebar = () => {
   return (
-    <div className="flex flex-col justify-between gap-y-[1rem] h-full">
+    <div className="flex flex-col gap-y-[1rem] h-full">
       <AllotmentStatus />
       <RealtimeStatus />
       <Request />

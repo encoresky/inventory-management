@@ -73,13 +73,31 @@ body {
   scrollbar-width: thin;
   scrollbar-color: #727272 #f5f6fa;
 }
+.tabWrapper::-webkit-scrollbar {
+  display: none;
+}
+.tabWrapper {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
 .proceedWrapper {
   width: 91%;
 }
 button {
   cursor: pointer;
 }
-
+.cardWrapper {
+  height: calc(100vh - 356px);
+}
+.listWrapper {
+  height: calc(100vh - 136px);
+}
+.dropWrapper {
+  height: calc(100vh - 136px);
+}
+.realtimeStatusWrapper {
+  height: calc(100vh - 429.27px);
+}
 .items_list:not(:last-child)::after {
   content: "";
   border: none;
@@ -110,6 +128,18 @@ button {
 }
 
 @media (max-width: 1040px) {
+  .cardWrapper {
+    height: calc(100vh - 493px);
+  }
+  .listWrapper {
+    height: calc(100vh - 180px);
+  }
+  .dropWrapper {
+    height: calc(100vh - 180px);
+  }
+  .realtimeStatusWrapper {
+    height: calc(100vh - 450.27px);
+  }
   .leftSideBar {
     position: absolute;
     left: 0;

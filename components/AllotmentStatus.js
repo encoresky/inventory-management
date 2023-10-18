@@ -1,19 +1,13 @@
-import Image from "next/image";
-import React from "react";
-import ep_arrow from "@/public/assets/ep_arrow.svg";
+import { Arrow } from "@/public/assets/svg/Arrow";
 const AllotmentStatus = () => {
   return (
     <>
-      <div className="AllotmentWrapper mt-[1rem]">
+      <div className="AllotmentWrapper pt-[1rem] h-[226px]">
         <h2 className="flex gap-[2.5rem] items-center mb-[1rem]">
-          <span> Allotment Status</span>{" "}
-          <Image
-            src={ep_arrow}
-            width={24}
-            height={24}
-            priority={true}
-            alt="arrow"
-          />
+          <span> Allotment Status</span>
+          <span className="rotate-[90deg]">
+            <Arrow />
+          </span>
         </h2>
         <div className="flex justify-between  flex-wrap w-full mt-[1rem]">
           <div className="AllotmentBlock w-[39%] py-[12px] px-[10px]  bg-light text-secondary_light rounded-[10px]">

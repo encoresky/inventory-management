@@ -7,9 +7,9 @@ import userManual from "@/public/assets/userManual.svg";
 const Details = () => {
   return (
     <div>
-      <div className="flex justify-between">
-        <div className="flex  gap-[2.5rem]">
-          <div className="text-center w-[69.42%] bg-primary_light rounded-[10px] flex-col flex items-center justify-center pt-[1.375rem] pb-[1.688rem]">
+      <div className="flex justify-between max-sm:flex-col max-md:gap-[1rem]">
+        <div className="flex max-sm:flex-col gap-[2.5rem]">
+          <div className="text-center w-[69.42%] max-sm:w-full bg-primary_light rounded-[10px] flex-col flex items-center justify-center pt-[1.375rem] pb-[1.688rem]">
             <div className="ImageContainer">
               <Image
                 src={mob}
@@ -17,6 +17,7 @@ const Details = () => {
                 width={138}
                 height="auto"
                 priority={true}
+                style={{ objectFit: "contain" }}
               />
             </div>
           </div>
@@ -37,8 +38,8 @@ const Details = () => {
             </ul>
           </div>
         </div>
-        <div className="w-[17%]">
-          <div className=" mb-[0.95rem] rounded-[10px] flex flex-col items-center gap-[2.5rem] bg-white shadow-lg pt-[2.063rem] px-[2.063rem] pb-[1.563rem] ">
+        <div className="w-[16.25rem] ">
+          <div className=" mb-[0.95rem] rounded-[10px] flex flex-col items-center gap-[2.5rem] bg-white shadow-lg pt-[2.063rem] px-[2.063rem] pb-[1.563rem]  ">
             <div className="max-w-[100%]">
               <Image
                 src={robot}
@@ -46,6 +47,7 @@ const Details = () => {
                 width={66}
                 height="auto"
                 priority={true}
+                style={{ objectFit: "contain" }}
               />
             </div>
             <Button className="btn-secondary" name="Report an issue" />
@@ -58,6 +60,7 @@ const Details = () => {
               priority={true}
               className="mx-auto"
               alt="businessman"
+              style={{ objectFit: "contain" }}
             />
             <button className="text-orange font-bold">
               Points to keep in mind

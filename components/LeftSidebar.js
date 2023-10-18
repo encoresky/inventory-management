@@ -100,6 +100,7 @@ const LeftSidebar = ({ setOpenLeft }) => {
               priority={true}
               className="mx-auto"
               alt="businessman"
+              style={{ objectFit: "contain" }}
             />
           </div>
           <div className="top-[-1.25rem] max-w-[10.688rem] relative">
@@ -111,6 +112,8 @@ const LeftSidebar = ({ setOpenLeft }) => {
                 priority={true}
                 className="mx-auto"
                 alt="businessman"
+                style={{ objectFit: "contain" }}
+                
               />
               <button className="text-orange font-bold">Guidance manual</button>
             </div>

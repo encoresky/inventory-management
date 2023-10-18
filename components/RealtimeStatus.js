@@ -1,28 +1,30 @@
-'use client'
-import React from "react";
-import ep_arrow from "@/public/assets/ep_arrow.svg";
-import Image from "next/image";
+"use client";
+import { Arrow } from "@/public/assets/svg/Arrow";
 import { useSelector } from "react-redux";
 const RealtimeStatus = () => {
-  const  allowedProductsStates  = useSelector((state) => state.employees.employee);
+  const allowedProductsStates = useSelector(
+    (state) => state.employees.employee
+  );
   return (
     <div>
-      <h2 className="flex gap-[2.5rem] items-center mb-[1rem] ">
-      Realtime Status
-        <Image src={ep_arrow} width={24}    height="auto"
-              priority={true} alt="arrow" />
+      <h2 className=" flex gap-[2.5rem] items-center mb-[1rem] ">
+        Realtime Status
+        <span className="rotate-[90deg]">
+          <Arrow />
+        </span>
       </h2>
-      <div className="max-h-[14rem] overflow-y-auto">
+      <div className="realtimeStatusWrapper overflow-y-auto">
         <ul className="list-none RealtimeStatusList pr-[10px]">
-          {
-           allowedProductsStates.map((value)=>{
-              return(
-                <li className="text-black font-sans text-md font-normal py-[12px] relative" key={value.id}>
+          {allowedProductsStates.map((value) => {
+            return (
+              <li
+                className="text-black font-sans text-md font-normal py-[12px] relative"
+                key={value.id}
+              >
                 {value.name} : IPhone 14 pro 9:00 AM
               </li>
-              )
-            })
-          }
+            );
+          })}
         </ul>
       </div>
     </div>
