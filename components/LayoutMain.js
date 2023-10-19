@@ -19,7 +19,7 @@ function LayoutMain({ children }) {
       {route !== "/details" ? (
         <div className="layout flex max-lg:flex-col">
           <div
-            className={`header w-[14.1%] leftSideBar h-screen   max-lg:w-[30%] max-sm:w-[100%] ${
+            className={`header w-[14.1%] leftSideBar h-screen max-xl:w-[20%]  max-lg:w-[30%] max-sm:w-[100%] ${
               openLeft ? "open" : ""
             }`}
           >
@@ -31,7 +31,7 @@ function LayoutMain({ children }) {
             </button>
             <LeftSidebar setOpenLeft={setOpenLeft} />
           </div>
-          <div className="dynamicContent pb-[1.875rem] h-screen w-[64.08%] max-lg:w-[100%] relative">
+          <div className="dynamicContent pb-[1.875rem] h-screen w-[64.08%] max-xl:w-[56%] max-lg:w-[100%] relative">
             {/* mobile burger buttn */}
             <div className="flex  justify-between">
               <button
@@ -67,8 +67,9 @@ function LayoutMain({ children }) {
             </div>
             <div className="px-[0.75rem]">{children}</div>
           </div>
+
           <div
-            className={`footer rightSideBar pb-[1.875rem] pt-[14px]  w-[21.82%]  max-lg:w-[30%] max-sm:w-[100%] h-screen bg-primary_light px-[1.313rem] ${
+            className={`footer rightSideBar pb-[1.875rem] pt-[14px]  w-[21.82%] max-xl:w-[24%] max-lg:w-[30%] max-sm:w-[100%] h-screen bg-primary_light px-[1.313rem] ${
               openRight ? "open" : ""
             }`}
           >

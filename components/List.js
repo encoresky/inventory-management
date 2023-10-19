@@ -39,7 +39,7 @@ const List = () => {
                     <h5 className="font-sans text-sm text-secondary_light font-normal">
                       {value?.productname}
                     </h5>
-                    <p className="font-sans  font-normal text-light_secondary text-mini_sm">
+                    <p className="font-sans  font-normal text-light_secondary text-ex_sm">
                       {value?.desc}
                     </p>
                   </div>
@@ -56,7 +56,7 @@ const List = () => {
                   margin:'0 auto'
                }}
               />
-              <p className="font-sans text-mini_sm font-normal text-red_primary">
+              <p className="font-sans text-ex_sm font-normal text-red_primary">
                 Remove
               </p>
             </button> */}
@@ -67,7 +67,7 @@ const List = () => {
       </div>
       <div className="flex justify-end gap-[3.8rem] items-center px-[2.5rem] max-sm:px-[0.7rem] py-[1rem]">
         <Button
-          className="text-xl text-secondary font-sans font-normal hover:text-orange hover:decoration-orange
+          className="text-xl text-secondary font-sans font-normal ease-in-out duration-300 hover:text-orange hover:decoration-orange
            decoration-1 underline decoration-secondary"
           name="Cancel"
         />

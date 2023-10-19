@@ -65,7 +65,7 @@ export default function ProcessModel({
               </figcaption>
             </div>
             <button
-              className="text-2xl text-secondary hover:text-red_primary"
+              className="ease-in-out duration-300 text-2xl text-secondary hover:text-red_primary"
               onClick={closeModal}
             >
               &#10006;
@@ -96,7 +96,7 @@ export default function ProcessModel({
                         <h5 className="font-sans text-sm text-secondary_light font-normal">
                           {value?.productname}
                         </h5>
-                        <p className="font-sans  font-normal text-light_secondary text-mini_sm">
+                        <p className="font-sans  font-normal text-light_secondary text-ex_sm">
                           {value?.desc}
                         </p>
                       </div>
@@ -114,7 +114,7 @@ export default function ProcessModel({
                         className="mx-auto"
                         style={{ objectFit: "contain" }}
                       />
-                      <p className="font-sans text-mini_sm font-normal text-red_primary">
+                      <p className="font-sans text-ex_sm font-normal text-red_primary">
                         Remove
                       </p>
                     </button>
@@ -125,7 +125,7 @@ export default function ProcessModel({
           </div>
           <div className="flex justify-end gap-[3.8rem] pt-[2rem] items-center">
             <Button
-              className="text-xl text-secondary font-sans font-normal decoration-1 underline decoration-secondary hover:text-orange hover:decoration-orange"
+              className="text-xl ease-in-out duration-300 text-secondary font-sans font-normal decoration-1 underline decoration-secondary hover:text-orange hover:decoration-orange"
               name="Cancel"
               onClick={closeModal}
             />

@@ -1,25 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 html {
   font-size: 100%;
 }
-/* img{
-  max-width: 100%;
-  width: auto;
-} */
+
 @layer components {
   .btn-primary {
-    @apply bg-orange border-[1px] ease-in-out	duration-300  border-transparent font-semibold	text-[20px] rounded-[5px] text-white py-[10px] px-[5.188rem] max-sm:px-[1.5rem] hover:bg-transparent hover:outline-none  hover:border-orange hover:text-secondary;
+    @apply bg-orange border-[1px] ease-in-out	duration-300  border-transparent font-semibold	text-[20px] rounded-[5px] text-white py-[10px] px-[5.188rem] max-xl:px-[2rem] max-lg:px-[5.188rem] max-sm:px-[1.5rem] hover:bg-transparent hover:outline-none  hover:border-orange hover:text-secondary;
   }
   .btn-secondary {
-    @apply bg-white border-[1px] 	  border-secondary font-medium	text-mini_sm rounded-[6.406px] text-orange py-[10px] px-[1.602rem] hover:outline-none hover:border-orange hover:text-secondary;
+    @apply bg-white border-[1px] 	ease-in-out duration-300  border-secondary font-medium	text-ex_sm rounded-[6.406px] text-orange py-[10px] px-[1.602rem] hover:outline-none hover:border-orange hover:text-secondary;
   }
   .btnToggle {
     @apply bg-transparent border-[1px]   ease-in-out	duration-300  border-transparent 	text-xl  rounded-[1.875rem] text-black font-bold	 p-[10.512px] w-full text-center font-lato;
   }
   .btnTab {
-    @apply bg-transparent border-[1px] font-lato ease-in-out	duration-300 border-light text-black 	text-md 
+    @apply bg-transparent border-[1px]   font-lato ease-in-out	duration-700 border-light text-black 	text-md 
      rounded-[1.25rem] font-bold	 pt-[6px] pb-[7px] px-[1.25rem] hover:bg-black hover:text-white hover:border-transparent;
   }
 }
@@ -93,7 +95,7 @@ button {
   height: calc(100vh - 136px);
 }
 .dropWrapper {
-  height: calc(100vh - 136px);
+  height: calc(100vh - 331px);
 }
 .realtimeStatusWrapper {
   height: calc(100vh - 429.27px);
@@ -127,6 +129,10 @@ button {
   display: none;
 }
 
+.interactionCol:not(:last-child) {
+  border-right: 1px dashed rgba(32, 32, 32, 0.5);
+}
+
 @media (max-width: 1040px) {
   .cardWrapper {
     height: calc(100vh - 493px);
@@ -135,7 +141,7 @@ button {
     height: calc(100vh - 180px);
   }
   .dropWrapper {
-    height: calc(100vh - 180px);
+    height: calc(100vh - 418px);
   }
   .realtimeStatusWrapper {
     height: calc(100vh - 450.27px);
