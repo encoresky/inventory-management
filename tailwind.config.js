@@ -18,8 +18,7 @@ module.exports = {
         orange: "#DE7139",
         orange_secondary: "rgba(223, 122, 69, 0.10)",
         red_primary: "#FF8686",
-        model_bg : "#000000d1",
-        
+        model_bg: "#000000d1",
       },
       fontSize: {
         ex_sm: "12px",
@@ -45,9 +44,10 @@ module.exports = {
       },
     },
     screens: {
-      sm: "767px",
-      md: "991px",
-      lg: "1040px",
+      ex_sm: "576px",
+      sm: "768px",
+      md: "992px",
+      lg: "1025px",
       xl: "1280px",
     },
   },

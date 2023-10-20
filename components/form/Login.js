@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import FormLabel from "./FormLabel";
 import Input from "./Input";
 import Link from "next/link";

@@ -133,9 +133,9 @@ button {
   border-right: 1px dashed rgba(32, 32, 32, 0.5);
 }
 
-@media (max-width: 1040px) {
+@media (max-width: 1024px) {
   .cardWrapper {
-    height: calc(100vh - 493px);
+    height: calc(100vh - 400px);
   }
   .listWrapper {
     height: calc(100vh - 180px);
@@ -175,5 +175,11 @@ button {
   .rightSideBar.open {
     transform: translateX(0);
     overflow: hidden;
+  }
+}
+
+@media (max-width: 767px) {
+  .cardWrapper {
+    height: calc(100vh - 493px);
   }
 }

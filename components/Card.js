@@ -49,7 +49,7 @@ const Card = ({
         {filteredProducts?.map((value) => {
           return (
             <div
-              className="card w-[31%] max-xl:w-[48%] max-lg:w-[31%] border-[1px] flex flex-col justify-between items-center bg-white  border-light rounded-[10px] text-center pt-[1.813rem] pb-[12px]
+              className="card w-[31%] max-xl:w-[47%] max-lg:w-[31%] border-[1px] flex flex-col justify-between items-center bg-white  border-light rounded-[10px] text-center pt-[1.813rem] pb-[12px]
          px-[1.563rem] ease-in-out 	duration-300 hover:bg-primary_light cursor-pointer max-sm:w-[100%]"
               id="cardWrapper"
               onClick={(e) =>

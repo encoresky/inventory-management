@@ -7,12 +7,17 @@ import Burger from "@/public/assets/svg/Burger";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import SearchList from "./SearchList";
+import RequestFormModel from "./form/RequestFormModel";
 
 function LayoutMain({ children }) {
   const route = usePathname();
   const [openLeft, setOpenLeft] = useState(false);
   const [openRight, setOpenRight] = useState(false);
   const [search, setSearch] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
+  const closeModal = () => {
+    setIsOpen(false);
+  };
 
   return (
     <>
@@ -79,8 +84,9 @@ function LayoutMain({ children }) {
             >
               &#10006;
             </button>
-            <RightSidebar />
+            <RightSidebar setIsOpen={setIsOpen} />
           </div>
+          {isOpen && <RequestFormModel closeModal={closeModal} />}
         </div>
       ) : (
         <div className="py-[2rem] overflow-y-scroll">{children}</div>

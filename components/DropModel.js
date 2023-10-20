@@ -107,7 +107,7 @@ export default function DropModel({ closeModal, employeeId }) {
                       <SelectButton
                         Select="Drop"
                         Selected="Selected"
-                        defaultSelected="true"
+                        value="true"
                         onChange={(isSelected) => {
                           handleSelect(isSelected, value.id);
                         }}

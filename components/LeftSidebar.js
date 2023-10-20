@@ -34,7 +34,8 @@ const getCurrentDateTime = () => {
 
 const LeftSidebar = ({ setOpenLeft }) => {
   const pathname = usePathname();
-  const linkCss = "text-white flex  flex-col items-center	gap-[0.75rem]";
+  const linkCss =
+    "hover:text-orange hover:fill-orange flex ease-in-out duration-300 flex-col items-center	gap-[0.75rem]";
   const [formattedTime, setFormattedTime] = useState("");
   const [formattedDate, setFormattedDate] = useState("");
 
@@ -63,7 +64,9 @@ const LeftSidebar = ({ setOpenLeft }) => {
           <Link
             href="/"
             className={`${linkCss} ${
-              pathname === "/" ? "activeLink" : "navLink"
+              pathname === "/"
+                ? "fill-orange text-orange"
+                : "fill-white text-white"
             }`}
             onClick={() => setOpenLeft(false)}
           >
@@ -72,8 +75,10 @@ const LeftSidebar = ({ setOpenLeft }) => {
           </Link>
           <Link
             href="/list"
-            className={` ${linkCss} ${
-              pathname === "/list" ? "activeLink" : "navLink"
+            className={`${linkCss} ${
+              pathname === "/list"
+                ? "fill-orange text-orange"
+                : "fill-white text-white"
             }`}
             onClick={() => setOpenLeft(false)}
           >
@@ -82,8 +87,10 @@ const LeftSidebar = ({ setOpenLeft }) => {
           </Link>
           <Link
             href="/login"
-            className={` ${linkCss} ${
-              pathname === "/login" ? "activeLink" : "navLink"
+            className={`${linkCss} ${
+              pathname === "/login"
+                ? "fill-orange text-orange"
+                : "fill-white text-white"
             }`}
             onClick={() => setOpenLeft(false)}
           >
@@ -113,7 +120,6 @@ const LeftSidebar = ({ setOpenLeft }) => {
                 className="mx-auto"
                 alt="businessman"
                 style={{ objectFit: "contain" }}
-                
               />
               <button className="text-orange font-bold">Guidance manual</button>
             </div>
