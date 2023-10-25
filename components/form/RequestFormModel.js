@@ -20,7 +20,6 @@ const RequestFormModel = ({ closeModal }) => {
         console.log(values);
       },
     });
-
   return (
     <div
       className="fixed inset-0 backdrop-blur-sm  flex justify-center bg-model_bg items-center z-[9]"
@@ -40,9 +39,9 @@ const RequestFormModel = ({ closeModal }) => {
           </button>
         </div>
 
-        <div className="flex justify-between gap-[1rem] max-ex_sm:flex-col-reverse">
-          <div className="w-[62.6%] max-ex_sm:w-full">
-            <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
+          <div className="flex justify-between gap-[1rem] max-ex_sm:flex-col-reverse">
+            <div className="w-[62.6%] max-ex_sm:w-full">
               <FormLabel name="Requested by" id="name" />
               <Input
                 name="name"
@@ -68,33 +67,50 @@ const RequestFormModel = ({ closeModal }) => {
                 handleBlur={handleBlur}
                 touched={touched}
               />
-              <FormLabel name="Description " id="Description" />
-              <textarea
-                placeholder="Describe yourself here..."
-                rows="4"
-                className="w-full  font-sans text-md outline-none rounded-[10px] mt-[4px] mb-[1.5rem] py-[12px] px-[1rem]  border-[1px] border-light text-secondary"
-              ></textarea>
-            </form>
+              <FormLabel name="Description " id="Desc" />
+              <div className="relative">
+                <textarea
+                  name="description"
+                  id="Desc"
+                  placeholder="Describe yourself here..."
+                  rows="4"
+                  className="w-full  font-sans text-md outline-none rounded-[10px] mt-[4px] mb-[1rem] py-[12px] px-[1rem]  border-[1px] border-light text-secondary"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.description}
+                ></textarea>
+                {errors.description && touched.description && (
+                  <span className="text-red-600 text-ex_sm font-sans font-normal block absolute bottom-0">
+                    {errors.description}
+                  </span>
+                )}
+              </div>
+            </div>
+            <div className="w-[30.28%] max-ex_sm:w-[40%] pt-[10px]">
+              <Image
+                src={RequestFromImage}
+                width={360}
+                height="auto"
+                priority={true}
+                alt="RequestFromImage"
+                style={{
+                  objectFit: "contain",
+                }}
+              />
+            </div>
           </div>
-          <div className="w-[30.28%] max-ex_sm:w-[40%] pt-[10px]">
-            <Image
-              src={RequestFromImage}
-              width={360}
-              height="auto"
-              priority={true}
-              alt="RequestFromImage"
-              style={{
-                objectFit: "contain",
-              }}
-            />
+          <div className="flex justify-end gap-[3.8rem] items-center pl-[2.5rem] max-sm:px-[0.7rem] pt-[3rem] max-ex_sm:pt-0">
+            <button
+              type="submit"
+              className="text-xl text-secondary font-sans font-normal ease-in-out duration-300 hover:text-orange hover:decoration-orange decoration-1 underline decoration-secondary"
+            >
+              Cancel
+            </button>
+            <button type="submit" className="btn-primary">
+              Submit
+            </button>
           </div>
-        </div>
-        <div class="flex justify-end gap-[3.8rem] items-center pl-[2.5rem] max-sm:px-[0.7rem] pt-[3rem] max-ex_sm:pt-0">
-          <button class="text-xl text-secondary font-sans font-normal ease-in-out duration-300 hover:text-orange hover:decoration-orange decoration-1 underline decoration-secondary">
-            Cancel
-          </button>
-          <button class="btn-primary">Submit</button>
-        </div>
+        </form>
       </div>
     </div>
   );
