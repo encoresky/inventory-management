@@ -62,9 +62,12 @@ const Login = () => {
             handleBlur={handleBlur}
             touched={touched}
           />
-          <div className="flex justify-between mt-[0.5rem]">
-            <Button name="Login" className="btn-primary px-[2rem]" />
-            <p className="text-secondary text-[14px] mt-[20px]">
+          <div className="flex items-center gap-[1rem] max-ex_sm:flex-col max-ex_sm:items-start justify-between mt-[0.5rem]">
+            <Button
+              name="Login"
+              className="btn-primary px-[2rem] max-ex_sm:w-full"
+            />
+            <p className="text-secondary text-[14px]">
               Don't have an account?
               <Link
                 href="/signUp"
