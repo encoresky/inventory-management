@@ -141,7 +141,6 @@
 //   );
 // }
 
-
 "use client";
 import Image from "next/image";
 import Button from "./Button";
@@ -196,8 +195,8 @@ export default function ProcessModel({
         id="modelWrapper"
         onClick={(e) => (e.target.id === "modelWrapper" ? closeModal() : "")}
       >
-        <div className="w-[48rem]  transform px-[2.5rem] pt-[2.063rem] pb-[2.625rem] bg-white rounded-[20px] shadow-lg transition-all">
-          <div className="flex items-center justify-between ">
+        <div className="w-[48rem]  transform px-[2.5rem] pt-[2.063rem] pb-[2.625rem] max-ex_sm:px-[1rem] bg-white rounded-[20px] shadow-lg transition-all">
+          <div className="flex items-center justify-between">
             <div className="flex gap-[1.5rem] items-center">
               <Image
                 src={employee?.proImage}
@@ -229,16 +228,23 @@ export default function ProcessModel({
             <div className="max-h-[20rem] overflow-y-auto overflow-x-hidden pr-[10px]">
               {items?.map((value) => {
                 return (
-                  <div className=" h-[90px] relative w-full overflow-hidden" key={value?.id}>
+                  <div
+                    className=" h-[90px] relative w-full overflow-hidden"
+                    key={value?.id}
+                  >
                     <div
-                      className={`ease-linear w-full delay-700  duration-300 absolute top-0 left-0  ${animation === value?.id
+                      className={`ease-linear w-full delay-700  duration-300 absolute top-0 left-0  ${
+                        animation === value?.id
                           ? "translate-x-[90%] right-0"
                           : ""
-                        }`}
+                      }`}
                     >
                       <div
-                        className={`w-[80%] ease-in duration-500 max-w-max flex gap-[2.1rem] max-sm:gap-[1rem] ${animation === value?.id ? " origin-left scale-[0.3]" : ""
-                          }`}
+                        className={`w-[80%] ease-in duration-500 max-w-max flex gap-[2.1rem] max-sm:gap-[1rem] ${
+                          animation === value?.id
+                            ? " origin-left scale-[0.3]"
+                            : ""
+                        }`}
                       >
                         <Image
                           src={value?.image}
@@ -260,15 +266,18 @@ export default function ProcessModel({
                     </div>
 
                     <button
-                      className={`absolute right-0 flex flex-col items-center ${animation === value?.id ? "animate" : ""
-                        }`}
+                      className={`bg-white absolute right-0 flex flex-col items-center ${
+                        animation === value?.id ? "animate" : ""
+                      }`}
                       onClick={(e) => handleDelete(value?.id)}
                     >
                       <DeleteIcon
-                        top={`fill-red_primary ease-in-out duration-500 ${animation === value?.id ? "rotate-45	mb-[6px]" : ""
-                          }`}
-                        bottom={`fill-red_primary ease-in-out duration-500 ${animation === value?.id ? "rotate-[-90deg]" : ""
-                          }`}
+                        top={`fill-red_primary ease-in-out duration-500 ${
+                          animation === value?.id ? "rotate-45	mb-[6px]" : ""
+                        }`}
+                        bottom={`fill-red_primary ease-in-out duration-500 ${
+                          animation === value?.id ? "rotate-[-90deg]" : ""
+                        }`}
                       />
                       <p className="font-sans text-ex_sm font-normal text-red_primary">
                         Remove

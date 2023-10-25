@@ -49,7 +49,7 @@ export default function DropModel({ closeModal, employeeId }) {
         id="modelWrapper"
         onClick={(e) => (e.target.id === "modelWrapper" ? closeModal() : "")}
       >
-        <div className="w-[48rem]  transform px-[2.5rem] pt-[2.063rem] pb-[2.625rem] bg-white rounded-[20px] shadow-lg transition-all">
+        <div className="w-[48rem]  transform px-[2.5rem] pt-[2.063rem] pb-[2.625rem] max-ex_sm:px-[1rem] bg-white rounded-[20px] shadow-lg transition-all">
           <div className="flex items-center justify-between ">
             <div className="flex gap-[1.5rem] items-center">
               <Image
@@ -82,7 +82,7 @@ export default function DropModel({ closeModal, employeeId }) {
               {SelectedProduct?.map((value) => {
                 return (
                   <div
-                    className="flex justify-between items-center gap-[2rem] items_list relative py-[12.5px]"
+                    className="flex  justify-between  gap-[2rem] items_list relative py-[12.5px] max-ex_sm:flex-col"
                     key={value.id}
                   >
                     <div className="flex gap-[2.1rem]">
