@@ -59,7 +59,9 @@ export default function DropModel({ closeModal, employeeId }) {
                 priority={true}
                 className="rounded-[50%]"
                 alt="img"
-                style={{ objectFit: "contain" }}
+                style={{
+                  objectFit: "contain",
+                }}
               />
               <figcaption className="text-1xl font-sans font-medium text-secondary">
                 {employeeVal[0]["name"]}
@@ -92,7 +94,9 @@ export default function DropModel({ closeModal, employeeId }) {
                         height="auto"
                         priority={true}
                         alt="arrowUp"
-                        style={{ objectFit: "contain" }}
+                        style={{
+                          objectFit: "contain",
+                        }}
                       />
                       <div>
                         <h5 className="font-sans text-sm text-secondary_light font-normal">

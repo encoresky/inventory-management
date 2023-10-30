@@ -18,9 +18,9 @@ const Drop = () => {
   };
   return (
     <div className="px-[1.75rem] max-sm:px-0 pt-[2rem] ">
-      <div className="dropWrapper pb-[1rem]">
-        <div className="shadow-md overflow-y-auto h-full bg-white  flex flex-col justify-between rounded-[20px] py-[1rem]">
-          <div className="px-[2.5rem] py-[2.5rem]">
+      <div className="dropWrapper shadow-md  h-full bg-white  py-[2rem] rounded-[20px] mb-[1rem]">
+        <div className="overflow-y-auto px-[2.5rem]  h-full">
+          <div>
             {employee.map((value) => {
               return (
                 <div

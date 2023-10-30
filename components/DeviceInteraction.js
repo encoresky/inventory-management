@@ -5,9 +5,9 @@ import { InteractionIcon3 } from "@/public/assets/svg/InteractionIcon";
 const DeviceInteraction = () => {
   return (
     <>
-      <div className="h-[127px] max-sm:h-[180px] flex border-dashed border-light_secondary border-[1px] rounded-[10px] items-center justify-center ">
-        <div className="w-[33.33%] interactionCol ">
-          <div className="w-[60%] group  max-sm:w-full max-sm:p-[1rem] flex flex-col items-center justify-center  mx-auto">
+      <div className="h-[127px] max-sm:h-[180px] max-ex_sm:h-[270px] flex max-ex_sm:flex-col border-dashed border-light_secondary border-[1px] rounded-[10px] items-center justify-center ">
+        <div className="w-[33.33%] interactionCol max-ex_sm:w-full">
+          <div className="w-[60%] group  max-sm:w-full max-sm:p-[1rem] max-ex_sm:p-[0.5rem] flex flex-col items-center justify-center  mx-auto">
             <span>
               <InteractionIcon1 className="fill-orange group-hover:fill-primary " />
             </span>
@@ -16,8 +16,8 @@ const DeviceInteraction = () => {
             </p>
           </div>
         </div>
-        <div className="w-[33.33%] interactionCol">
-          <div className="w-[60%] group max-sm:w-full max-sm:p-[1rem] flex flex-col items-center justify-center mx-auto">
+        <div className="w-[33.33%] interactionCol max-ex_sm:w-full">
+          <div className="w-[60%] group max-sm:w-full max-sm:p-[1rem] max-ex_sm:p-[0.5rem] flex flex-col items-center justify-center mx-auto">
             <span>
               <InteractionIcon2 className="fill-orange group-hover:fill-primary ease-in-out duration-300" />
             </span>
@@ -26,8 +26,8 @@ const DeviceInteraction = () => {
             </p>
           </div>
         </div>
-        <div className="interactionCol w-[33.33%] relative ">
-          <div className="w-[60%] group max-sm:w-full max-sm:p-[1rem] flex flex-col items-center justify-center mx-auto">
+        <div className="interactionCol w-[33.33%]  max-ex_sm:w-full ">
+          <div className="w-[60%] group max-sm:w-full max-sm:p-[1rem] max-ex_sm:p-[0.5rem] flex flex-col items-center justify-center mx-auto">
             <span>
               <InteractionIcon3 className="fill-orange group-hover:fill-primary ease-in-out duration-300" />
             </span>

@@ -5,6 +5,10 @@ import Link from "next/link";
 import Button from "../Button";
 import { loginschema } from "@/app/schemas/loginschema";
 import { useFormik } from "formik";
+import Image from "next/image";
+import logo from "@/public/assets/logo.svg";
+import { Arrow } from "@/public/assets/svg/Arrow";
+
 const Login = () => {
   const initialValues = {
     fname: "",
@@ -32,8 +36,20 @@ const Login = () => {
   });
 
   return (
-    <div className="flex items-center py-[2rem]  flex-col">
-      <div className="w-[500px] max-sm:w-[100%] bg-white  px-[20px] py-[40px] shadow-sm rounded-[10px] ">
+    <div className="flex relative items-center py-[2rem] h-screen justify-center flex-col">
+      <div className="w-[500px] max-sm:w-[100%] bg-white  px-[1.25rem] py-[1.9rem] shadow-sm rounded-[10px] ">
+        <Link
+          href="/"
+          className="font-sans flex text-1xl duration-300 ease-in-out font-medium absolute  top-[10px] left-[10px] hover:fill-orange hover:text-orange hover:underline hover:underline-offset-4"
+        >
+          <span className="rotate-[270deg]">
+            <Arrow />
+          </span>
+          Home
+        </Link>
+        <div>
+          <Image src={logo} width={160} height="auto" alt="logo" />
+        </div>
         <h1 className="text-[40px] font-bold text-primary text-center font-sans pb-[1rem]">
           Login
         </h1>

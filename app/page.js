@@ -7,6 +7,8 @@ import React, { useEffect, useState } from "react";
 import Drop from "@/components/Drop";
 import ProcessModel from "@/components/ProcessModel";
 import { useSelector } from "react-redux";
+import LayoutMain from "@/components/LayoutMain";
+
 export default function Home() {
   const data = useSelector((state) => state.product.products);
   const [toggleState, setToggleState] = useState("pick");
@@ -35,10 +37,11 @@ export default function Home() {
     setIsOpen(false);
   }
   return (
-    <>
+    <LayoutMain>
       <div className="w-[75.4%] max-sm:w-[100%] mx-auto h-[50px]">
         <Toggle setToggleState={setToggleState} toggleState={toggleState} />
       </div>
+      <div></div>
       {toggleState === "pick" ? (
         <Tab setCategory={setCategory} category={category} />
       ) : (
@@ -81,6 +84,6 @@ export default function Home() {
       ) : (
         ""
       )}
-    </>
+    </LayoutMain>
   );
 }
