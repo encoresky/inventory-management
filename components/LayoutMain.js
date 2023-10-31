@@ -28,7 +28,7 @@ function LayoutMain({ children }) {
           }`}
         >
           <button
-            className=" bg-white  burgericon p-[10px]  absolute top-0 right-0"
+            className=" bg-white hidden max-lg:block hover:text-red_primary burgericon p-[10px]  absolute top-0 right-0"
             onClick={() => setOpenLeft(!openLeft)}
           >
             &#10006;
@@ -80,7 +80,7 @@ function LayoutMain({ children }) {
           }`}
         >
           <button
-            className="burgericon"
+            className="hidden max-lg:block hover:text-red_primary"
             onClick={() => setOpenRight(!openRight)}
           >
             &#10006;
