@@ -7,6 +7,8 @@ import Burger from "@/public/assets/svg/Burger";
 import { useState } from "react";
 import SearchList from "./SearchList";
 import RequestFormModel from "./form/RequestFormModel";
+import Image from "next/image";
+import logo from "@/public/assets/logo.svg";
 
 function LayoutMain({ children }) {
   const [openLeft, setOpenLeft] = useState(false);
@@ -35,18 +37,20 @@ function LayoutMain({ children }) {
         </div>
         <div className="dynamicContent pb-[1.875rem] h-screen w-[64.08%] max-xl:w-[56%] max-lg:w-[100%] relative">
           {/* mobile burger buttn */}
-          <div className="flex  justify-between">
+          <div className=" hidden max-lg:flex mobile_menu justify-between">
             <button
-              className="burgericon p-[10px] bg-primary rounded-r-[10px]"
+              className="burgericon fill-white p-[10px] bg-primary rounded-r-[10px]"
               onClick={() => setOpenLeft(!openLeft)}
             >
               <Burger />
             </button>
+            <Image src={logo} width={160} height="auto" alt="logo" />
+
             <button
               className="burgericon p-[10px]  bg-primary rounded-l-[10px] "
               onClick={() => setOpenRight(!openRight)}
             >
-              <span className="rotate-[270deg]  block">
+              <span className="rotate-[270deg] fill-white  block">
                 <Arrow />
               </span>
             </button>

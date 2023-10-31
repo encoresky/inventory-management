@@ -125,9 +125,9 @@ button {
 .customOption {
   @apply font-sans;
 }
-.burgericon {
+/* .burgericon {
   display: none;
-}
+} */
 
 .interactionCol:not(:last-child) {
   border-right: 1px dashed rgba(32, 32, 32, 0.5);
@@ -198,12 +198,12 @@ button {
     transform: translateX(0);
     overflow: hidden;
   }
-  .burgericon svg {
+  /* .burgericon svg {
     fill: #fff;
   }
   .burgericon {
     display: block;
-  }
+  } */
   .rightSideBar {
     position: absolute;
     right: 0;
